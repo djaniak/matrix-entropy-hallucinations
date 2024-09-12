@@ -25,3 +25,5 @@ repos:
       - id: ruff-format
         name: Ruff Formatter
         args: [hallucinations, scripts, tests]
+
+exclude: 'data/|dvc.lock'

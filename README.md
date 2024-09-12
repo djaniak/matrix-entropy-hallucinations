@@ -17,13 +17,19 @@ Dependencies in this project are defined in through 3 files:
 
 ## Development
 
-1. Install pre-commit hooks (prevents commits while static checks are failing):
+1. Install pre-commit hooks (prevent `git commit` while static checks are failing):
+   ```bash
+   pre-commit install
+   ```
 
-```bash
-pre-commit install
-```
+2. Configure local `minio` profile
+   ```bash
+   dvc remote modify --local minio profile <profile from `~/.aws/credentials`>
+   ```
+> [!IMPORTANT]
+> `minio` endpoint available only through VPN.
 
-2. Run static code checks:
+3. Run static code checks:
     - check only :
          ```bash
          make quality
