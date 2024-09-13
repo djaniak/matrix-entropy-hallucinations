@@ -9,6 +9,9 @@ quality:
 fix:
 	pre-commit run --all-files
 
+test:
+	pytest
+
 install_cpu:
 	pip install -r requirements-cpu.txt -r requirements.txt
 
