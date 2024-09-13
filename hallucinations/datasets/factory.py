@@ -9,15 +9,19 @@ def prepare_dataset(
     split: str,
     prompt: QaPromptConfig,
     use_output: bool,
-) -> Dataset:
+    return_raw: bool = False,
+) -> Dataset | tuple[Dataset, Dataset]:
     dataset = get_dataset(config=dataset_config, split=split)
     if dataset_config.name == "google-research-datasets/nq_open":
-        dataset = dataset.map(
+        formatted_ds = dataset.map(
             function=NqOpenFormatter(prompt=prompt, use_output=use_output),
             batched=False,
             desc="Formatting dataset",
         )
-    return dataset
+    if return_raw:
+        return dataset, formatted_ds
+    else:
+        return dataset
 
 
 def get_dataset(config: QaDatasetConfig, split: str | None) -> Dataset | DatasetDict:

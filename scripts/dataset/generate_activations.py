@@ -30,11 +30,12 @@ def main(cfg: DictConfig) -> None:
 
     seed_everything(config.random_seed)
 
-    dataset = prepare_dataset(
+    raw_ds, dataset = prepare_dataset(
         dataset_config=config.dataset,
         split=config.dataset.test_split_name,
         prompt=config.prompt,
         use_output=False,
+        return_raw=True,
     )
     # NOTE: Sorting dataset by length might cause ordering issues when saving activations
 
@@ -63,7 +64,7 @@ def main(cfg: DictConfig) -> None:
         **model_pack.generate_kwargs,
     )
 
-    golds = [ans for ans in dataset["validation"]["answer"]]
+    golds = [ans for ans in raw_ds["answer"]]
     results = [{"answer": ans, "gold": g} for ans, g in zip(outs, golds, strict=True)]
     metrics = compute_squad_metrics(outs, golds, return_reduced=True, return_all=True)
 
