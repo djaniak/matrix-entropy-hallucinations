@@ -1,0 +1,23 @@
+stages:
+  generate_activations:
+    matrix:
+      llm:
+        - llama_3.1_8b_instruct
+      dataset:
+        - nq_open
+      seed: [42]
+    cmd: >-
+      PYTHONPATH=. python scripts/dataset/generate_activations.py
+      dataset=${item.dataset}
+      llm=${item.llm}
+      prompt=qa/short_few_shot_sep
+      results_dir=data/activations/${item.dataset}/${item.llm}/seed_${item.seed}
+      random_seed=${item.seed}
+    deps:
+      - scripts/dataset/generate_activations.py
+      - config/llm/${item.llm}.yaml
+      - config/dataset/${item.dataset}.yaml
+    outs:
+      - data/activations/${item.dataset}/${item.llm}/seed_${item.seed}/answers.jsonl
+      - data/activations/${item.dataset}/${item.llm}/seed_${item.seed}/metrics.json
+      - data/activations/${item.dataset}/${item.llm}/seed_${item.seed}/config.yaml
