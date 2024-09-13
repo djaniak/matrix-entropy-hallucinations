@@ -1,0 +1,6 @@
+name: meta-llama/Meta-Llama-3.1-8B
+tokenizer_name: ${.name}
+tokenizer_padding_side: left
+context_size: 128_000
+compile: true
+use_bnb_4bit: false

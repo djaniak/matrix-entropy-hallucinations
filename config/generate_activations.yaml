@@ -1,0 +1,11 @@
+defaults:
+  - llm: ???
+  - dataset: ???
+  - prompt: ???
+  - _self_
+
+batch_size: 64
+generate_kwargs:
+  max_new_tokens: ${dataset.max_answer_tokens}
+results_dir: ???
+random_seed: ???

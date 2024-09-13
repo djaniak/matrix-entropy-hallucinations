@@ -1,10 +1,14 @@
 import time
+from pathlib import Path
 from typing import Any
 
+import torch
 from datasets import Dataset
+from torch import Tensor
 from torch.utils.data import DataLoader
 from tqdm.auto import tqdm
 from transformers import PreTrainedModel, PreTrainedTokenizer
+from transformers.generation import GenerateDecoderOnlyOutput
 
 
 def predict_with_llm(
@@ -13,6 +17,7 @@ def predict_with_llm(
     dataset: Dataset,
     batch_size: int,
     num_proc: int,
+    activations_save_dir: Path | None = None,
     **generate_kwargs: dict[str, Any],
 ) -> list[str]:
     dataloader = DataLoader(
@@ -27,31 +32,45 @@ def predict_with_llm(
 
     device = next(model.parameters()).device
 
-    with tqdm(dataloader) as pbar:
-        for batch in pbar:
-            input_ids = batch["input_ids"].to(device)
-            attention_mask = batch["attention_mask"].to(device)
-            input_length = input_ids.size(1)
+    for i, batch in (
+        pbar := tqdm(
+            enumerate(dataloader),
+            total=len(dataloader),
+            desc="Generating predictions",
+        )
+    ):
+        input_ids = batch["input_ids"].to(device)
+        attention_mask = batch["attention_mask"].to(device)
+        input_length = input_ids.size(1)
 
-            start_time = time.time()
-            generated_ids = model.generate(
-                inputs=input_ids,
-                attention_mask=attention_mask,
-                **generate_kwargs,
-            )
-            duration = time.time() - start_time
+        start_time = time.time()
+        generations = model.generate(
+            inputs=input_ids,
+            attention_mask=attention_mask,
+            **generate_kwargs,
+        )
+        duration = time.time() - start_time
 
-            decoded = tokenizer.batch_decode(
-                generated_ids[:, input_length:],
-                skip_special_tokens=True,
-            )
-            model_outputs.extend(decoded)
+        if isinstance(generations, GenerateDecoderOnlyOutput):
+            assert activations_save_dir is not None
+            generated_ids = generations.sequences
+            torch.save(generations, activations_save_dir / f"batch_{i}.pt")
+        elif isinstance(generations, Tensor):
+            generated_ids = generations
+        else:
+            raise ValueError(f"Unexpected generation output: {type(generations)}")
 
-            stats = {
-                "input_size": input_length,
-                "throughput": f"{generated_ids.numel() / duration:0.2f} tok/sec",
-                "mean(#special_tokens)": f"{(1 - attention_mask).float().mean().item():0.3f}",
-            }
-            pbar.set_postfix(stats)
+        decoded = tokenizer.batch_decode(
+            generated_ids[:, input_length:],
+            skip_special_tokens=True,
+        )
+        model_outputs.extend(decoded)
+
+        stats = {
+            "input_size": input_length,
+            "throughput": f"{generated_ids.numel() / duration:0.2f} tok/sec",
+            "mean(#special_tokens)": f"{(1 - attention_mask).float().mean().item():0.3f}",
+        }
+        pbar.set_postfix(stats)
 
     return model_outputs

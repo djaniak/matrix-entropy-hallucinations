@@ -1,5 +1,22 @@
+from pathlib import Path
+
 import torch
 from datasets import Dataset
+from omegaconf import DictConfig, OmegaConf
+
+
+def load_and_resolve_config(path: Path) -> dict:
+    cfg = OmegaConf.load(path)
+    assert isinstance(cfg, DictConfig)
+    return resolve_config(cfg)
+
+
+def resolve_config(config: DictConfig, resolve: bool = True) -> dict:
+    if not OmegaConf.has_resolver("eval"):
+        OmegaConf.register_new_resolver("eval", eval)
+    config_primitive = OmegaConf.to_container(config, resolve=resolve)
+    assert isinstance(config_primitive, dict)
+    return config_primitive
 
 
 def sort_dataset_by_input_length(ds: Dataset, field: str) -> tuple[Dataset, list[int]]:
