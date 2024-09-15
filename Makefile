@@ -17,3 +17,4 @@ install_cpu:
 
 install_gpu:
 	pip install -r requirements-gpu.txt -r requirements.txt
+	pip install flash-attn==2.6.3 --no-build-isolation

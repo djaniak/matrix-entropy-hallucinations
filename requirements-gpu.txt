@@ -1,5 +1,4 @@
 torch==2.4.1
-flash-attn==2.6.3, --config-settings="--build-option=--no-isolation"
 
 --find-links https://data.pyg.org/whl/torch-2.4.0+cu121.html
 pyg-lib==0.4.0+pt24cu121
