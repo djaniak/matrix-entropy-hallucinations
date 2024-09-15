@@ -3,4 +3,5 @@ tokenizer_name: ${.name}
 tokenizer_padding_side: left
 context_size: 128_000
 compile: true
+torch_dtype: bfloat16
 use_bnb_4bit: false

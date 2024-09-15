@@ -10,7 +10,8 @@ class LlmConfig(BaseModel, extra="forbid"):
     tokenizer_padding_side: Literal["left", "right"]
     context_size: int
     compile: bool
-    use_bnb_4bit: bool = False
+    torch_dtype: str
+    quantization_config: dict[str, Any] | None = None
 
 
 class QaDatasetConfig(BaseModel, extra="forbid"):

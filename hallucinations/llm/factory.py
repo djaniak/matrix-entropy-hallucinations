@@ -47,13 +47,8 @@ def _get_model_tokenizer(
     llm_config: LlmConfig,
     **kwargs: Any,
 ) -> tuple[AutoModelForCausalLM, AutoTokenizer]:
-    if llm_config.use_bnb_4bit:
-        kwargs["quantization_config"] = BitsAndBytesConfig(
-            load_in_4bit=True,
-            bnb_4bit_use_double_quant=True,
-            bnb_4bit_quant_type="nf4",
-            bnb_4bit_compute_dtype=torch.bfloat16,
-        )
+    if llm_config.quantization_config is not None:
+        kwargs["quantization_config"] = BitsAndBytesConfig(**llm_config.quantization_config)
 
     if torch.cuda.is_available():
         assert is_flash_attn_2_available()
@@ -61,7 +56,7 @@ def _get_model_tokenizer(
 
     model = AutoModelForCausalLM.from_pretrained(
         llm_config.name,
-        torch_dtype=torch.bfloat16,
+        torch_dtype=llm_config.torch_dtype,
         **kwargs,
     )
 
