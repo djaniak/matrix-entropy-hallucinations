@@ -2,13 +2,9 @@ defaults:
   - llm: ???
   - dataset: ???
   - prompt: ???
+  - generation_config: ???
   - _self_
 
 batch_size: 64
-generate_kwargs:
-  max_new_tokens: ${dataset.max_answer_tokens}
-  do_sample: true
-  temperature: 1.0
-  return_dict_in_generate: true # allows to retrieve activations etc.
 results_dir: ???
 random_seed: ???

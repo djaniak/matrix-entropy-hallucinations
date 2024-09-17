@@ -10,7 +10,9 @@ class NqOpenFormatter:
         self.use_output = use_output
 
     def __call__(self, item: dict[str, Any]) -> dict[str, Any]:
-        content = self.prompt.content.format(**{self.prompt.question_key: item["question"]})
+        content = self.prompt.content.format(
+            **{self.prompt.question_key: item[self.prompt.question_key]}
+        )
         messages = {
             "messages": [
                 {

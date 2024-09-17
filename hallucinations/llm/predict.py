@@ -1,6 +1,5 @@
 import time
 from pathlib import Path
-from typing import Any
 
 import torch
 from datasets import Dataset
@@ -8,17 +7,17 @@ from torch import Tensor
 from torch.utils.data import DataLoader
 from tqdm.auto import tqdm
 from transformers import PreTrainedModel, PreTrainedTokenizer
-from transformers.generation import GenerateDecoderOnlyOutput
+from transformers.generation import GenerateDecoderOnlyOutput, GenerationConfig
 
 
 def predict_with_llm(
     model: PreTrainedModel,
     tokenizer: PreTrainedTokenizer,
     dataset: Dataset,
+    generation_config: GenerationConfig,
     batch_size: int,
     num_proc: int,
     activations_save_dir: Path | None = None,
-    **generate_kwargs: dict[str, Any],
 ) -> list[str]:
     dataloader = DataLoader(
         dataset,
@@ -47,7 +46,7 @@ def predict_with_llm(
         generations = model.generate(
             inputs=input_ids,
             attention_mask=attention_mask,
-            **generate_kwargs,
+            generation_config=generation_config,
         )
         duration = time.time() - start_time
 

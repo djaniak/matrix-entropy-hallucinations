@@ -1,0 +1,4 @@
+max_new_tokens: ${dataset.max_answer_tokens}
+do_sample: true
+temperature: 1.0
+return_dict_in_generate: true # allows to retrieve activations etc.

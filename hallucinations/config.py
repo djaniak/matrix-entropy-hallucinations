@@ -31,7 +31,7 @@ class GenerateActivationsConfig(BaseModel, extra="forbid"):
     dataset: QaDatasetConfig
     prompt: QaPromptConfig
     batch_size: int
-    generate_kwargs: dict[str, Any]
+    generation_config: dict[str, Any]
     results_dir: Path
     random_seed: int
 

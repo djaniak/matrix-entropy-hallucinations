@@ -28,7 +28,7 @@ def get_llm(llm_config: LlmConfig, **kwargs: Any) -> ModelForGeneration:
 
 
 def get_llama_3(llm_config: LlmConfig, **kwargs: Any) -> ModelForGeneration:
-    model, tokenizer = _get_model_tokenizer(llm_config, **kwargs)
+    model, tokenizer = _get_model_and_tokenizer(llm_config, **kwargs)
 
     tokenizer.padding_side = llm_config.tokenizer_padding_side
     tokenizer.pad_token = tokenizer.eos_token
@@ -43,7 +43,7 @@ def get_llama_3(llm_config: LlmConfig, **kwargs: Any) -> ModelForGeneration:
     )
 
 
-def _get_model_tokenizer(
+def _get_model_and_tokenizer(
     llm_config: LlmConfig,
     **kwargs: Any,
 ) -> tuple[AutoModelForCausalLM, AutoTokenizer]:

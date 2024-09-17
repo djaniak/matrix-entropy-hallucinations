@@ -30,3 +30,52 @@ stages:
       hash: md5
       md5: 509f05698e22ada78f6feab9c35e6147
       size: 210391
+  generate_activations@llama_3.1_8b_instruct-nq_open-sampling_high_temp_with_activations-42:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=nq_open
+      llm=llama_3.1_8b_instruct generation_config=sampling_high_temp_with_activations
+      prompt=qa/short_few_shot_sep 
+      results_dir=data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations/seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/nq_open.yaml
+      hash: md5
+      md5: de5cd8a37fdcc5cf87fcd9d14a67f9c0
+      size: 198
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 6c6c2eefb4f9665062fc0aa6726c79ef
+      size: 144
+    - path: config/generation_config/sampling_high_temp_with_activations.yaml
+      hash: md5
+      md5: c3ade3fb22e4fbf0a95aeaaa3df2da46
+      size: 146
+    - path: config/llm/llama_3.1_8b_instruct.yaml
+      hash: md5
+      md5: 56cc0287eeb8a816ba1d3a4bf086232f
+      size: 182
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: 4dac05eeca54a9f337e33f171e2afa76
+      size: 2800
+    outs:
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations/seed_42/activations
+      hash: md5
+      md5: c54b42c1fe0ed039a40f388fbfcca804.dir
+      size: 94041879078
+      nfiles: 57
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations/seed_42/answers.jsonl
+      hash: md5
+      md5: a8aa00310e37a71da0405ffdf61d9d85
+      size: 516606
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations/seed_42/config.yaml
+      hash: md5
+      md5: 586a2e53260a2633c8291e782e8c0f63
+      size: 1185
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations/seed_42/metrics.json
+      hash: md5
+      md5: 83db0f3a8e27917cec64c4e5d77cf239
+      size: 210669

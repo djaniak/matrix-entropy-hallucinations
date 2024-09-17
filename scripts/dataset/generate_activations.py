@@ -8,6 +8,7 @@ import yaml
 from loguru import logger
 from omegaconf import DictConfig
 from torch_geometric import seed_everything
+from transformers import GenerationConfig
 
 from hallucinations.config import GenerateActivationsConfig
 from hallucinations.datasets.factory import prepare_dataset
@@ -44,8 +45,8 @@ def main(cfg: DictConfig) -> None:
         device_map="auto",  # loads model in a balanced mode on all available GPUs
     )
 
-    assert not any(key in model_pack.generate_kwargs for key in config.generate_kwargs)
-    model_pack.generate_kwargs |= config.generate_kwargs
+    assert not any(key in model_pack.generate_kwargs for key in config.generation_config)
+    generation_config = GenerationConfig(**(model_pack.generate_kwargs | config.generation_config))
 
     model_pack.llm.eval()
     if config.llm.compile:
@@ -58,10 +59,10 @@ def main(cfg: DictConfig) -> None:
         model=model_pack.llm,
         tokenizer=model_pack.tokenizer,
         dataset=dataset,
+        generation_config=generation_config,
         batch_size=config.batch_size,
         num_proc=NUM_PROC,
         activations_save_dir=config.activations_dir,
-        **model_pack.generate_kwargs,
     )
 
     golds = [ans for ans in raw_ds["answer"]]
