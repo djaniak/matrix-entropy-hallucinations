@@ -53,12 +53,13 @@ def predict_with_llm(
         if isinstance(generations, GenerateDecoderOnlyOutput):
             assert activations_save_dir is not None
             generated_ids = generations.sequences
-            # we take only the first forward pass (without autoregressive decoding)
+            # Process and save activations from the first forward pass (no autoregressive decoding)
+            # We need to stack a tuple of tensors representing the hidden states/attentions of different layers
             if hasattr(generations, "hidden_states"):
-                hidden_states = torch.stack(generations.hidden_states[0]).cpu()
+                hidden_states = torch.stack([t.cpu() for t in generations.hidden_states[0]])
                 torch.save(hidden_states, activations_save_dir / f"batch_hidden_states_{i}.pt")
             if hasattr(generations, "attentions"):
-                attentions = torch.stack(generations.attentions[0]).cpu()
+                attentions = torch.stack([t.cpu() for t in generations.attentions[0]])
                 torch.save(attentions, activations_save_dir / f"batch_attentions_{i}.pt")
         elif isinstance(generations, Tensor):
             generated_ids = generations
