@@ -1,0 +1,5 @@
+[core]
+    remote = minio
+['remote "minio"']
+    url = s3://s3min-tkajdanowicz-1724771116/hallucinations
+    endpointurl = https://s3min.e-science.pl

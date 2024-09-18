@@ -163,3 +163,4 @@ outputs/
 
 # datasets are downloaded and processed in Pytorch Geometric, so should be reproducible
 data/datasets/
+data/**/*.pt

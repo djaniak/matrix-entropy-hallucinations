@@ -1,0 +1,29 @@
+stages:
+  generate_activations:
+    matrix:
+      llm:
+        - llama_3.1_8b_instruct
+      dataset:
+        - nq_open
+      generation_config:
+        - sampling_high_temp_with_activations
+      seed: [42]
+    cmd: >-
+      PYTHONPATH=. python scripts/dataset/generate_activations.py
+      dataset=${item.dataset}
+      llm=${item.llm}
+      generation_config=${item.generation_config}
+      prompt=qa/short_few_shot_sep
+      results_dir=data/activations/${item.dataset}/${item.llm}/${item.generation_config}/seed_${item.seed}
+      random_seed=${item.seed}
+    deps:
+      - scripts/dataset/generate_activations.py
+      - config/llm/${item.llm}.yaml
+      - config/generation_config/${item.generation_config}.yaml
+      - config/dataset/${item.dataset}.yaml
+      - config/generate_activations.yaml
+    outs:
+      - data/activations/${item.dataset}/${item.llm}/${item.generation_config}/seed_${item.seed}/answers.jsonl
+      - data/activations/${item.dataset}/${item.llm}/${item.generation_config}/seed_${item.seed}/metrics.json
+      - data/activations/${item.dataset}/${item.llm}/${item.generation_config}/seed_${item.seed}/config.yaml
+      - data/activations/${item.dataset}/${item.llm}/${item.generation_config}/seed_${item.seed}/activations
