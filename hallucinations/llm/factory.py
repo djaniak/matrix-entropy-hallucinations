@@ -3,7 +3,6 @@ from typing import Any
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
-from transformers.utils import is_flash_attn_2_available
 
 from hallucinations.config import LlmConfig
 
@@ -50,13 +49,10 @@ def _get_model_and_tokenizer(
     if llm_config.quantization_config is not None:
         kwargs["quantization_config"] = BitsAndBytesConfig(**llm_config.quantization_config)
 
-    if torch.cuda.is_available():
-        assert is_flash_attn_2_available()
-        kwargs["attn_implementation"] = "flash_attention_2"
-
     model = AutoModelForCausalLM.from_pretrained(
         llm_config.name,
         torch_dtype=llm_config.torch_dtype,
+        attn_implementation=llm_config.attn_implementation
         **kwargs,
     )
 

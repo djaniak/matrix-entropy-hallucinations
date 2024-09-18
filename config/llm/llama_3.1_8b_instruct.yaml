@@ -4,4 +4,5 @@ tokenizer_padding_side: left
 context_size: 128_000
 compile: true
 torch_dtype: bfloat16
+attn_implementation: eager
 quantization_config: null

@@ -53,7 +53,13 @@ def predict_with_llm(
         if isinstance(generations, GenerateDecoderOnlyOutput):
             assert activations_save_dir is not None
             generated_ids = generations.sequences
-            torch.save(generations, activations_save_dir / f"batch_{i}.pt")
+            # we take only the first forward pass (without autoregressive decoding)
+            if hasattr(generations, "hidden_states"):
+                hidden_states = torch.stack(generations.hidden_states[0]).cpu()
+                torch.save(hidden_states, activations_save_dir / f"batch_hidden_states_{i}.pt")
+            if hasattr(generations, "attentions"):
+                attentions = torch.stack(generations.attentions[0]).cpu()
+                torch.save(attentions, activations_save_dir / f"batch_attentions_{i}.pt")
         elif isinstance(generations, Tensor):
             generated_ids = generations
         else:
@@ -71,5 +77,8 @@ def predict_with_llm(
             "mean(#special_tokens)": f"{(1 - attention_mask).float().mean().item():0.3f}",
         }
         pbar.set_postfix(stats)
+
+        del generations, input_ids, attention_mask, generated_ids
+        torch.cuda.empty_cache()
 
     return model_outputs
