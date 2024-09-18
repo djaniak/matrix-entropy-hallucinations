@@ -11,6 +11,7 @@ class LlmConfig(BaseModel, extra="forbid"):
     context_size: int
     compile: bool
     torch_dtype: str
+    attn_implementation: str
     quantization_config: dict[str, Any] | None = None
 
 

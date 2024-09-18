@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 from typing import Any
 
-import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 from hallucinations.config import LlmConfig
@@ -52,7 +51,7 @@ def _get_model_and_tokenizer(
     model = AutoModelForCausalLM.from_pretrained(
         llm_config.name,
         torch_dtype=llm_config.torch_dtype,
-        attn_implementation=llm_config.attn_implementation
+        attn_implementation=llm_config.attn_implementation,
         **kwargs,
     )
 
