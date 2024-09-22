@@ -3,6 +3,7 @@ stages:
     matrix:
       llm:
         - llama_3.1_8b_instruct
+        - phi_3.5_mini_instruct
       dataset:
         - nq_open
       generation_config:
