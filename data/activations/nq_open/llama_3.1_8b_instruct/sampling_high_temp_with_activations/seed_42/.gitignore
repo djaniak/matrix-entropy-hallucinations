@@ -2,3 +2,5 @@
 /metrics.json
 /config.yaml
 /activations
+/llm_judge.json
+/llm_judge_config.yaml

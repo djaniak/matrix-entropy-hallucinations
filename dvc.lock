@@ -128,3 +128,69 @@ stages:
       hash: md5
       md5: cc45cec9f7cea2c258a039f193b73ab4
       size: 211201
+  ? eval_answers_llm_as_judge@data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations/seed_42-llm_as_judge/qa_eval
+  : cmd: PYTHONPATH=. python scripts/eval/llm_as_judge.py 
+      answers_file=data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations/seed_42/answers.jsonl
+      prompt=llm_as_judge/qa_eval
+    deps:
+    - path: config/llm_as_judge.yaml
+      hash: md5
+      md5: e8fc39776c7f5d71c83cdcbf5495ca0b
+      size: 103
+    - path: config/prompt/llm_as_judge/qa_eval.yaml
+      hash: md5
+      md5: d88f359f67971bf7f5c555679b188275
+      size: 721
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations/seed_42/answers.jsonl
+      hash: md5
+      md5: be1bd6854d6195d061f51304df45bb1a
+      size: 515779
+    - path: scripts/eval/llm_as_judge.py
+      hash: md5
+      md5: fea54d09affcbdefb6e109134df192e0
+      size: 4154
+    outs:
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations/seed_42/llm_judge.json
+      hash: md5
+      md5: 52d18f6c782fed964e4761670f534e3d
+      size: 48756
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations/seed_42/llm_judge_config.yaml
+      hash: md5
+      md5: f6fa69aad51b121c39b76769de9c6a4e
+      size: 1035
+  ? eval_answers_llm_as_judge@data/activations/nq_open/phi_3.5_mini_instruct/sampling_high_temp_with_activations/seed_42-llm_as_judge/qa_eval
+  : cmd: PYTHONPATH=. python scripts/eval/llm_as_judge.py 
+      answers_file=data/activations/nq_open/phi_3.5_mini_instruct/sampling_high_temp_with_activations/seed_42/answers.jsonl
+      prompt=llm_as_judge/qa_eval
+    deps:
+    - path: config/llm_as_judge.yaml
+      hash: md5
+      md5: e8fc39776c7f5d71c83cdcbf5495ca0b
+      size: 103
+    - path: config/prompt/llm_as_judge/qa_eval.yaml
+      hash: md5
+      md5: d88f359f67971bf7f5c555679b188275
+      size: 721
+    - path: 
+        data/activations/nq_open/phi_3.5_mini_instruct/sampling_high_temp_with_activations/seed_42/answers.jsonl
+      hash: md5
+      md5: 1c05cfc362441b20af119e1f47f01e2b
+      size: 478593
+    - path: scripts/eval/llm_as_judge.py
+      hash: md5
+      md5: fea54d09affcbdefb6e109134df192e0
+      size: 4154
+    outs:
+    - path: 
+        data/activations/nq_open/phi_3.5_mini_instruct/sampling_high_temp_with_activations/seed_42/llm_judge.json
+      hash: md5
+      md5: 2a688039387a10c50ca11f83bf21a0e5
+      size: 49328
+    - path: 
+        data/activations/nq_open/phi_3.5_mini_instruct/sampling_high_temp_with_activations/seed_42/llm_judge_config.yaml
+      hash: md5
+      md5: ef4afec7a1fc3e8755bd02de7164afc1
+      size: 1035

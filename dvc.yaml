@@ -28,3 +28,23 @@ stages:
       - data/activations/${item.dataset}/${item.llm}/${item.generation_config}/seed_${item.seed}/metrics.json
       - data/activations/${item.dataset}/${item.llm}/${item.generation_config}/seed_${item.seed}/config.yaml
       - data/activations/${item.dataset}/${item.llm}/${item.generation_config}/seed_${item.seed}/activations
+
+  eval_answers_llm_as_judge:
+    matrix:
+      answers:
+        - data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations/seed_42
+        - data/activations/nq_open/phi_3.5_mini_instruct/sampling_high_temp_with_activations/seed_42
+      prompt:
+        - llm_as_judge/qa_eval
+    cmd: >-
+      PYTHONPATH=. python scripts/eval/llm_as_judge.py
+      answers_file=${item.answers}/answers.jsonl
+      prompt=${item.prompt}
+    deps:
+      - scripts/eval/llm_as_judge.py
+      - ${item.answers}/answers.jsonl
+      - config/llm_as_judge.yaml
+      - config/prompt/${item.prompt}.yaml
+    outs:
+      - ${item.answers}/llm_judge.json
+      - ${item.answers}/llm_judge_config.yaml
