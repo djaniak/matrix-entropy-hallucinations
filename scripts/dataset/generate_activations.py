@@ -33,8 +33,8 @@ def main(cfg: DictConfig) -> None:
 
     raw_ds, dataset = prepare_dataset(
         dataset_config=config.dataset,
-        split=config.dataset.test_split_name,
-        prompt=config.prompt,
+        split=config.dataset.split_name,
+        prompt_config=config.prompt,
         use_output=False,
         return_raw=True,
     )

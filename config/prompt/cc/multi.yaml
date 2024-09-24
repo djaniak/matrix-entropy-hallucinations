@@ -1,0 +1,11 @@
+content: |
+  Given the following statement, determine whether it is common knowledge and label it as True, False, or Neither. Use 1, 0, and 2 to represent True, False, and Neither, respectively.
+  A statement is considered True if it represents a fact that most people would know as true, False if it represents a widely known falsehood, and Neither if it cannot be classified as common knowledge.
+
+
+  Statement: {statement}
+  Label:
+
+statement_key: statement
+label_mode: multi
+use_prompt: true

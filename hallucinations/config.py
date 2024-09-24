@@ -15,21 +15,39 @@ class LlmConfig(BaseModel, extra="forbid"):
     quantization_config: dict[str, Any] | None = None
 
 
-class QaDatasetConfig(BaseModel, extra="forbid"):
+class DatasetConfig(BaseModel, extra="forbid"):
     name: str | Path
-    test_split_name: str
+    split_name: str | None
     max_answer_tokens: int
 
 
-class QaPromptConfig(BaseModel, extra="forbid"):
+class CsvDatasetConfig(DatasetConfig):
+    dataset_url: str | None
+    local_dataset_path: Path
+
+
+class QaDatasetConfig(DatasetConfig, extra="forbid"):
+    pass
+
+
+class PromptConfig(BaseModel, extra="forbid"):
     content: str
+
+
+class QaPromptConfig(PromptConfig, extra="forbid"):
     question_key: str
     context_key: str | None = None
 
 
+class CcPromptConfig(PromptConfig, extra="forbid"):
+    statement_key: str
+    label_mode: Literal["binary", "binary_with_neither", "multi"]
+    use_prompt: bool
+
+
 class GenerateActivationsConfig(BaseModel, extra="forbid"):
     llm: LlmConfig
-    dataset: QaDatasetConfig
+    dataset: DatasetConfig
     prompt: QaPromptConfig
     batch_size: int
     generation_config: dict[str, Any]
