@@ -65,7 +65,7 @@ def main(cfg: DictConfig) -> None:
         activations_save_dir=config.activations_dir,
     )
 
-    golds = [ans for ans in raw_ds["answer"]]
+    golds = [g for g in raw_ds[config.dataset.target_column_name]]
     results = [{"answer": ans, "gold": g} for ans, g in zip(outs, golds, strict=True)]
     metrics = compute_squad_metrics(outs, golds, return_reduced=True, return_all=True)
 

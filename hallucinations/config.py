@@ -19,6 +19,7 @@ class DatasetConfig(BaseModel, extra="forbid"):
     name: str | Path
     split_name: str | None
     max_answer_tokens: int
+    target_column_name: str
 
 
 class CsvDatasetConfig(DatasetConfig):
@@ -47,8 +48,8 @@ class CcPromptConfig(PromptConfig, extra="forbid"):
 
 class GenerateActivationsConfig(BaseModel, extra="forbid"):
     llm: LlmConfig
-    dataset: DatasetConfig
-    prompt: QaPromptConfig
+    dataset: CsvDatasetConfig | QaDatasetConfig
+    prompt: CcPromptConfig | QaPromptConfig
     batch_size: int
     generation_config: dict[str, Any]
     results_dir: Path

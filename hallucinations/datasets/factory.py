@@ -40,7 +40,6 @@ def prepare_dataset(
             dataset, label_mode=prompt_config.label_mode, seed=seed
         )
         dataset = dataset.rename_column("examples", prompt_config.statement_key)
-        dataset = dataset.train_test_split(test_size=0.1)
         formatted_ds = dataset.map(
             function=CommonClaimFormatter(prompt=prompt_config),
             batched=False,
