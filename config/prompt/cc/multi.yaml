@@ -1,7 +1,7 @@
 content: |
-  Given the following statement, determine whether it is common knowledge and label it as True, False, or Neither. Output only the label.
+  Given the following statement, determine whether it is common knowledge and label it as True, False, or Neither.
   A statement is considered True if it represents a fact that most people would know as true, False if it represents a widely known falsehood, and Neither if it cannot be classified as common knowledge.
-
+  Output only the label.
 
   Statement: {statement}
   Label:

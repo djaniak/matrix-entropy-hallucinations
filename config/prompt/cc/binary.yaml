@@ -1,7 +1,5 @@
 content: |
-  Given the following statement, determine whether it is common knowledge and label it as True, False. Use 1 and 0 to represent True and False, respectively.
-  A statement is considered True if it represents a fact that most people would know as true and False if it represents a widely known falsehood.
-
+  Given the following statement, determine whether it is True or False based on common knowledge. Output only the label (True/False).
 
   Statement: {statement}
   Label:

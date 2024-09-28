@@ -1,7 +1,7 @@
 content: |
   Given the following statement, determine whether it can be classified as a factual statement or if it falls into the 'Neither' category.
   Label the statement as 1 if it is either common-knowledge-true or common-knowledge-false, and label it as 0 if it cannot be classified as common knowledge (Neither).
-
+  Output only the label.
 
   Statement: {statement}
   Label:
