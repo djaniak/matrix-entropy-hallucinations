@@ -37,6 +37,7 @@ def main(cfg: DictConfig) -> None:
         prompt_config=config.prompt,
         use_output=False,
         return_raw=True,
+        seed=config.random_seed,
     )
     # NOTE: Sorting dataset by length might cause ordering issues when saving activations
 

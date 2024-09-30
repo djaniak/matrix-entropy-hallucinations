@@ -1,7 +1,3 @@
-from pathlib import Path
-
-import pandas as pd
-import requests
 from datasets import Dataset, DatasetDict, load_dataset
 
 from hallucinations.config import (
@@ -12,8 +8,8 @@ from hallucinations.config import (
     QaDatasetConfig,
     QaPromptConfig,
 )
-from hallucinations.datasets.cc import CommonClaimFormatter, prepare_common_claim_labels
-from hallucinations.datasets.qa import NqOpenFormatter
+from hallucinations.datasets.cc import load_custom_claim_dataset, prepare_common_claim_labels
+from hallucinations.datasets.formatter import CommonClaimFormatter, NqOpenFormatter
 
 
 def prepare_dataset(
@@ -21,8 +17,8 @@ def prepare_dataset(
     split: str | None,
     prompt_config: PromptConfig,
     use_output: bool,
+    seed: int,
     return_raw: bool = False,
-    seed: int = 42,
 ) -> Dataset | tuple[Dataset, Dataset]:
     dataset = get_dataset(config=dataset_config, split=split)
 
@@ -58,30 +54,6 @@ def get_dataset(config: DatasetConfig, split: str | None) -> Dataset | DatasetDi
         return load_dataset(config.name, split=split)
     elif config.name == "custom/common_claim":
         assert isinstance(config, CsvDatasetConfig)
-        return load_custom_dataset(config.local_dataset_path, config.dataset_url)
+        return load_custom_claim_dataset(config.local_dataset_path, config.dataset_url)
     else:
         raise ValueError(f"Unknown dataset: {config.name}")
-
-
-def load_custom_dataset(local_path: str | Path, url: str | None = None) -> Dataset:
-    local_path = Path(local_path)
-    if not local_path.exists():
-        assert url is not None, "Dataset not found and no URL provided"
-        download_dataset(url, local_path)
-
-    df = pd.read_csv(local_path)
-    if "Unnamed: 0" in df.columns:
-        df = df.drop(columns=["Unnamed: 0"])
-    dataset = Dataset.from_pandas(df)
-
-    return dataset
-
-
-def download_dataset(url: str, local_path: Path) -> None:
-    local_path.parent.mkdir(parents=True, exist_ok=True)
-
-    response = requests.get(url)
-    with open(local_path, "wb") as f:
-        f.write(response.content)
-
-    print(f"Dataset downloaded and saved to {local_path}")

@@ -1,7 +1,9 @@
 from pathlib import Path
 
+import requests
 import torch
 from datasets import Dataset
+from loguru import logger
 from omegaconf import DictConfig, OmegaConf
 
 
@@ -35,3 +37,13 @@ def sort_dataset_by_input_length(ds: Dataset, field: str) -> tuple[Dataset, list
     sort_idx = torch.argsort(item_lenghts, stable=True, descending=True)
     reverse_sort_idx = torch.argsort(sort_idx, stable=True).tolist()
     return ds.select(sort_idx), reverse_sort_idx
+
+
+def download_dataset(url: str, local_path: Path) -> None:
+    local_path.parent.mkdir(parents=True, exist_ok=True)
+
+    response = requests.get(url)
+    with open(local_path, "wb") as f:
+        f.write(response.content)
+
+    logger.info(f"Dataset downloaded and saved to {local_path}")
