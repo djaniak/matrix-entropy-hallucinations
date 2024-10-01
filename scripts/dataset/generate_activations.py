@@ -33,10 +33,11 @@ def main(cfg: DictConfig) -> None:
 
     raw_ds, dataset = prepare_dataset(
         dataset_config=config.dataset,
-        split=config.dataset.test_split_name,
-        prompt=config.prompt,
+        split=config.dataset.split_name,
+        prompt_config=config.prompt,
         use_output=False,
         return_raw=True,
+        seed=config.random_seed,
     )
     # NOTE: Sorting dataset by length might cause ordering issues when saving activations
 
@@ -65,7 +66,7 @@ def main(cfg: DictConfig) -> None:
         activations_save_dir=config.activations_dir,
     )
 
-    golds = [ans for ans in raw_ds["answer"]]
+    golds = [g for g in raw_ds[config.dataset.target_column_name]]
     results = [{"answer": ans, "gold": g} for ans, g in zip(outs, golds, strict=True)]
     metrics = compute_squad_metrics(outs, golds, return_reduced=True, return_all=True)
 

@@ -1,0 +1,9 @@
+content: |
+  Given the following statement, determine whether it is True or False based on common knowledge. Output only the label (True/False).
+
+  Statement: {statement}
+  Label:
+
+statement_key: statement
+label_mode: binary
+use_prompt: true
