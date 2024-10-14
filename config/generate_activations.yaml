@@ -5,6 +5,7 @@ defaults:
   - generation_config: ???
   - _self_
 
+split: ${dataset.test_split_name}
 batch_size: 64
 results_dir: ???
 random_seed: ???

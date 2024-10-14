@@ -3,6 +3,8 @@ from typing import Any, Literal
 
 from pydantic import BaseModel
 
+from hallucinations.utils import load_and_resolve_config
+
 
 class LlmConfig(BaseModel, extra="forbid"):
     name: str | Path
@@ -17,7 +19,7 @@ class LlmConfig(BaseModel, extra="forbid"):
 
 class DatasetConfig(BaseModel, extra="forbid"):
     name: str | Path
-    split_name: str | None
+    test_split_name: str
     max_answer_tokens: int
     target_column_name: str
 
@@ -50,6 +52,7 @@ class GenerateActivationsConfig(BaseModel, extra="forbid"):
     llm: LlmConfig
     dataset: CsvDatasetConfig | QaDatasetConfig
     prompt: CcPromptConfig | QaPromptConfig
+    split: str
     batch_size: int
     generation_config: dict[str, Any]
     results_dir: Path
@@ -61,7 +64,7 @@ class GenerateActivationsConfig(BaseModel, extra="forbid"):
 
     @property
     def answers_file(self) -> Path:
-        return self.results_dir / "answers.jsonl"
+        return self.results_dir / "answers.json"
 
     @property
     def metrics_file(self) -> Path:
@@ -74,3 +77,43 @@ class GenerateActivationsConfig(BaseModel, extra="forbid"):
     @property
     def activations_dir(self) -> Path:
         return self.results_dir / "activations"
+
+
+class LlmJudgePromptConfig(BaseModel, extra="forbid"):
+    system_prompt: str
+    content: str
+    question_key: str
+    predicted_answer_key: str
+    gold_answer_key: str
+
+    def format(self, question: str, pred_answer: str, gold_answer: list[str]) -> str:
+        return self.content.format(
+            **{
+                self.question_key: question,
+                self.predicted_answer_key: pred_answer,
+                self.gold_answer_key: str(gold_answer),
+            }
+        )
+
+
+class LllmJudgeConfig(BaseModel, extra="forbid"):
+    base_url: str | None
+    llm_name: str
+    prompt: LlmJudgePromptConfig
+    answers_file: Path
+
+    @property
+    def dataset(self) -> QaDatasetConfig:
+        return QaDatasetConfig(**load_and_resolve_config(self.config_file)["dataset"])
+
+    @property
+    def config_file(self) -> Path:
+        return self.answers_file.with_name("config.yaml")
+
+    @property
+    def evaluation_file(self) -> Path:
+        return self.answers_file.with_name("llm_judge.json")
+
+    @property
+    def evaluation_config_file(self) -> Path:
+        return self.answers_file.with_name("llm_judge_config.yaml")

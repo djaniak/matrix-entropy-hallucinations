@@ -1,21 +1,22 @@
 stages:
   generate_activations:
-    matrix:
+    matrix: &activation_matrix
       llm:
         - llama_3.1_8b_instruct
-        - phi_3.5_mini_instruct
       dataset:
         - nq_open
       generation_config:
         - sampling_high_temp_with_activations
+      prompt:
+        - short_few_shot_sep
       seed: [42]
     cmd: >-
       PYTHONPATH=. python scripts/dataset/generate_activations.py
       dataset=${item.dataset}
       llm=${item.llm}
       generation_config=${item.generation_config}
-      prompt=qa/short_few_shot_sep
-      results_dir=data/activations/${item.dataset}/${item.llm}/${item.generation_config}/seed_${item.seed}
+      prompt=qa/${item.prompt}
+      results_dir=data/activations/${item.dataset}/${item.llm}/${item.generation_config}__prompt_${item.prompt}__seed_${item.seed}
       random_seed=${item.seed}
     deps:
       - scripts/dataset/generate_activations.py
@@ -23,28 +24,37 @@ stages:
       - config/generation_config/${item.generation_config}.yaml
       - config/dataset/${item.dataset}.yaml
       - config/generate_activations.yaml
+      - config/prompt/qa/${item.prompt}.yaml
     outs:
-      - data/activations/${item.dataset}/${item.llm}/${item.generation_config}/seed_${item.seed}/answers.jsonl
-      - data/activations/${item.dataset}/${item.llm}/${item.generation_config}/seed_${item.seed}/metrics.json
-      - data/activations/${item.dataset}/${item.llm}/${item.generation_config}/seed_${item.seed}/config.yaml
-      - data/activations/${item.dataset}/${item.llm}/${item.generation_config}/seed_${item.seed}/activations
+      - data/activations/${item.dataset}/${item.llm}/${item.generation_config}__prompt_${item.prompt}__seed_${item.seed}/answers.json
+      - data/activations/${item.dataset}/${item.llm}/${item.generation_config}__prompt_${item.prompt}__seed_${item.seed}/config.yaml
+      - data/activations/${item.dataset}/${item.llm}/${item.generation_config}__prompt_${item.prompt}__seed_${item.seed}/activations
+
+  eval_answers:
+    matrix: *activation_matrix
+    cmd: >-
+      PYTHONPATH=. python scripts/eval/compute_qa_metrics.py
+      --answers-file=data/activations/${item.dataset}/${item.llm}/${item.generation_config}__prompt_${item.prompt}__seed_${item.seed}/answers.json
+    deps:
+      - scripts/eval/compute_qa_metrics.py
+      - data/activations/${item.dataset}/${item.llm}/${item.generation_config}__prompt_${item.prompt}__seed_${item.seed}/answers.json
+    outs:
+      - data/activations/${item.dataset}/${item.llm}/${item.generation_config}__prompt_${item.prompt}__seed_${item.seed}/metrics.json
 
   eval_answers_llm_as_judge:
     matrix:
-      answers:
-        - data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations/seed_42
-        - data/activations/nq_open/phi_3.5_mini_instruct/sampling_high_temp_with_activations/seed_42
-      prompt:
+      <<: *activation_matrix
+      judge_prompt:
         - llm_as_judge/qa_eval
     cmd: >-
       PYTHONPATH=. python scripts/eval/llm_as_judge.py
-      answers_file=${item.answers}/answers.jsonl
-      prompt=${item.prompt}
+      answers_file=data/activations/${item.dataset}/${item.llm}/${item.generation_config}__prompt_${item.prompt}__seed_${item.seed}/answers.json
+      prompt=${item.judge_prompt}
     deps:
       - scripts/eval/llm_as_judge.py
-      - ${item.answers}/answers.jsonl
+      - data/activations/${item.dataset}/${item.llm}/${item.generation_config}__prompt_${item.prompt}__seed_${item.seed}/answers.json
       - config/llm_as_judge.yaml
-      - config/prompt/${item.prompt}.yaml
+      - config/prompt/${item.judge_prompt}.yaml
     outs:
-      - ${item.answers}/llm_judge.json
-      - ${item.answers}/llm_judge_config.yaml
+      - data/activations/${item.dataset}/${item.llm}/${item.generation_config}__prompt_${item.prompt}__seed_${item.seed}/llm_judge.json
+      - data/activations/${item.dataset}/${item.llm}/${item.generation_config}__prompt_${item.prompt}__seed_${item.seed}/llm_judge_config.yaml

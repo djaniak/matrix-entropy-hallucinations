@@ -16,7 +16,7 @@ import collections
 import re
 import string
 from statistics import mean
-from typing import Any, Callable
+from typing import Callable
 
 from tqdm import tqdm
 
@@ -31,7 +31,7 @@ def compute_squad_metrics(
     return_reduced: bool = True,
     return_all: bool = True,
     verbose: bool = True,
-) -> dict[str, Any]:
+) -> dict[str, dict[str, float] | list[dict[str, float]]]:
     assert return_reduced or return_all
     if isinstance(answers_gold[0], str):
         answers_gold_list = [[ag] for ag in answers_gold]

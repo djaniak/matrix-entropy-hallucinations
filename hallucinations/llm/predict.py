@@ -1,5 +1,4 @@
 import time
-from pathlib import Path
 
 import torch
 from datasets import Dataset
@@ -9,16 +8,20 @@ from tqdm.auto import tqdm
 from transformers import PreTrainedModel, PreTrainedTokenizer
 from transformers.generation import GenerateDecoderOnlyOutput, GenerationConfig
 
+from hallucinations.llm.activation_storage import ActivationStorage
 
+
+@torch.inference_mode()
 def predict_with_llm(
     model: PreTrainedModel,
     tokenizer: PreTrainedTokenizer,
     dataset: Dataset,
     generation_config: GenerationConfig,
+    activation_storage: ActivationStorage | None,
     batch_size: int,
     num_proc: int,
-    activations_save_dir: Path | None = None,
 ) -> list[str]:
+    model.eval()
     dataloader = DataLoader(
         dataset,
         batch_size=batch_size,
@@ -31,55 +34,82 @@ def predict_with_llm(
 
     device = next(model.parameters()).device
 
-    for i, batch in (
-        pbar := tqdm(
-            enumerate(dataloader),
-            total=len(dataloader),
-            desc="Generating predictions",
-        )
-    ):
-        input_ids = batch["input_ids"].to(device)
-        attention_mask = batch["attention_mask"].to(device)
-        input_length = input_ids.size(1)
+    with tqdm(
+        enumerate(dataloader),
+        total=len(dataloader),
+        desc="Generating predictions",
+    ) as pbar:
+        for i, batch in pbar:
+            input_ids = batch["input_ids"].to(device)
+            attention_mask = batch["attention_mask"].to(device)
+            input_length = input_ids.size(1)
 
-        start_time = time.time()
-        generations = model.generate(
-            inputs=input_ids,
-            attention_mask=attention_mask,
-            generation_config=generation_config,
-        )
-        duration = time.time() - start_time
+            start_time = time.time()
+            outputs = model.generate(
+                inputs=input_ids,
+                attention_mask=attention_mask,
+                generation_config=generation_config,
+            )
+            duration = time.time() - start_time
 
-        if isinstance(generations, GenerateDecoderOnlyOutput):
-            assert activations_save_dir is not None
-            generated_ids = generations.sequences
-            # Process and save activations from the first forward pass (no autoregressive decoding)
-            # We need to stack a tuple of tensors representing the hidden states/attentions of different layers
-            if hasattr(generations, "hidden_states"):
-                hidden_states = torch.stack([t.cpu() for t in generations.hidden_states[0]])
-                torch.save(hidden_states, activations_save_dir / f"batch_hidden_states_{i}.pt")
-            if hasattr(generations, "attentions"):
-                attentions = torch.stack([t.cpu() for t in generations.attentions[0]])
-                torch.save(attentions, activations_save_dir / f"batch_attentions_{i}.pt")
-        elif isinstance(generations, Tensor):
-            generated_ids = generations
-        else:
-            raise ValueError(f"Unexpected generation output: {type(generations)}")
+            if isinstance(outputs, GenerateDecoderOnlyOutput):
+                assert (
+                    activation_storage is not None
+                ), "activation_storage must be provided for GenerateDecoderOnlyOutput"
+                outputs.sequences = outputs.sequences.cpu()
+                generated_ids = outputs.sequences
+                token_masks = get_token_masks(outputs.sequences, tokenizer)
+                activation_storage.update(
+                    outputs=outputs,
+                    attention_mask=attention_mask,
+                    special_token_mask=token_masks["special_token_mask"],
+                    decoder_added_token_mask=token_masks["decoder_added_token_mask"],
+                    input_length=input_length,
+                    batch_idx=i,
+                )
+            elif isinstance(outputs, Tensor):
+                generated_ids = outputs.cpu()
+            else:
+                raise ValueError(f"Unexpected generation output: {type(outputs)}")
 
-        decoded = tokenizer.batch_decode(
-            generated_ids[:, input_length:],
-            skip_special_tokens=True,
-        )
-        model_outputs.extend(decoded)
+            decoded = tokenizer.batch_decode(
+                generated_ids[:, input_length:],
+                skip_special_tokens=True,
+            )
+            model_outputs.extend(decoded)
 
-        stats = {
-            "input_size": input_length,
-            "throughput": f"{generated_ids.numel() / duration:0.2f} tok/sec",
-            "mean(#special_tokens)": f"{(1 - attention_mask).float().mean().item():0.3f}",
-        }
-        pbar.set_postfix(stats)
+            stats = {
+                "input_size": input_length,
+                "throughput": f"{generated_ids.numel() / duration:0.2f} tok/sec",
+                "mean(#special_tokens)": f"{(1 - attention_mask).float().mean().item():0.3f}",
+            }
+            pbar.set_postfix(stats)
 
-        del generations, input_ids, attention_mask, generated_ids
-        torch.cuda.empty_cache()
+            del outputs, input_ids, attention_mask, generated_ids
+            torch.cuda.empty_cache()
 
     return model_outputs
+
+
+def get_token_masks(token_ids: Tensor, tokenizer: PreTrainedTokenizer) -> dict[str, Tensor]:
+    special_token_masks = torch.tensor(
+        [
+            tokenizer.get_special_tokens_mask(
+                seq_tok_ids,
+                already_has_special_tokens=True,
+            )
+            for seq_tok_ids in token_ids
+        ]
+    )
+
+    decoder_added_token_mask = torch.tensor(
+        [
+            [tok_id in tokenizer.added_tokens_decoder.keys() for tok_id in seq_token_ids]
+            for seq_token_ids in token_ids
+        ]
+    )
+
+    return {
+        "special_token_mask": special_token_masks,
+        "decoder_added_token_mask": decoder_added_token_mask,
+    }

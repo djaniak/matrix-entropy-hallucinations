@@ -1,7 +1,10 @@
+import json
 from pathlib import Path
+from typing import Any
 
 import requests
 import torch
+import yaml
 from datasets import Dataset
 from loguru import logger
 from omegaconf import DictConfig, OmegaConf
@@ -47,3 +50,18 @@ def download_dataset(url: str, local_path: Path) -> None:
         f.write(response.content)
 
     logger.info(f"Dataset downloaded and saved to {local_path}")
+
+
+def load_json(path: Path) -> dict[str, Any]:
+    with path.open("r") as f:
+        return json.load(f)
+
+
+def save_json(path: Path, data: dict[str, Any] | list[Any]) -> None:
+    with path.open("w") as f:
+        json.dump(data, f, indent="\t")
+
+
+def save_yaml(path: Path, data: dict[str, Any]) -> None:
+    with path.open("w") as f:
+        yaml.dump(data, f)

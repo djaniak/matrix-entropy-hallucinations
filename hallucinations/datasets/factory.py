@@ -45,7 +45,7 @@ def prepare_dataset(
     if return_raw:
         return dataset, formatted_ds
     else:
-        return dataset
+        return formatted_ds
 
 
 def get_dataset(config: DatasetConfig, split: str | None) -> Dataset | DatasetDict:

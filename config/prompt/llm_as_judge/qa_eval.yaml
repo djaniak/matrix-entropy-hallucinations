@@ -1,16 +1,14 @@
-system_prompt: You are a Judge model evaluating the answer to a given question.
+system_prompt: You are a Judge model comparing Predicted Answer to a given Question with Gold Answer.
 content: |
-  Based on your evaluation, respond with one word: correct, incorrect, or abstaining.
-  Some question can have multiple answers, in which case you should respond correct if there is a matching answer.
-
-  Correct: The answer fully and accurately addresses the question.
-  Incorrect: The answer is wrong, incomplete, or contains major errors.
-  Abstaining: There is not enough information to judge, or the question is unclear.
-
+  Compare Predicted Answer and determine whether it is:
+    - correct: Predicted Answer fully and matches the Gold Answer.
+    - incorrect: Predicted Answer is wrong, incomplete, or contains major errors.
+    - abstaining: Predicted Answer contains information about refusing answering the question or not enough information to make a decision.
+  Some questions can have multiple answers. Respond with exactly one word, either 'correct', 'incorrect', or 'abstaining'. Don't provide any additional justification or context.
+  ====
   Question: {question}
-  Predicted answer: {predicted_answer}
-  Gold answer: {gold_answer}
-
+  Gold Answer: {gold_answer}
+  Predicted Answer: {predicted_answer}
   ====
   Assessment:
 question_key: question

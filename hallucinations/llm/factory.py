@@ -1,7 +1,13 @@
 from dataclasses import dataclass
 from typing import Any
 
-from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+from transformers import (
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    BitsAndBytesConfig,
+    PreTrainedModel,
+    PreTrainedTokenizer,
+)
 
 from hallucinations.config import LlmConfig
 
@@ -17,8 +23,8 @@ PHI_35_MODELS = [
 
 @dataclass
 class ModelForGeneration:
-    llm: AutoModelForCausalLM
-    tokenizer: AutoTokenizer
+    llm: PreTrainedModel
+    tokenizer: PreTrainedTokenizer
     generate_kwargs: dict[str, Any]
 
 
@@ -61,7 +67,7 @@ def get_phi_35(llm_config: LlmConfig, **kwargs: Any) -> ModelForGeneration:
 def _get_model_and_tokenizer(
     llm_config: LlmConfig,
     **kwargs: Any,
-) -> tuple[AutoModelForCausalLM, AutoTokenizer]:
+) -> tuple[PreTrainedModel, PreTrainedTokenizer]:
     if llm_config.quantization_config is not None:
         kwargs["quantization_config"] = BitsAndBytesConfig(**llm_config.quantization_config)
 
