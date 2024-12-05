@@ -4,12 +4,14 @@ from hallucinations.config import (
     CcPromptConfig,
     CsvDatasetConfig,
     DatasetConfig,
+    MMLUDatasetConfig,
+    MMLUPromptConfig,
     PromptConfig,
     QaDatasetConfig,
     QaPromptConfig,
 )
 from hallucinations.datasets.cc import load_custom_claim_dataset, prepare_common_claim_labels
-from hallucinations.datasets.formatter import CommonClaimFormatter, NqOpenFormatter
+from hallucinations.datasets.formatter import CommonClaimFormatter, MMLUFormatter, NqOpenFormatter
 
 
 def prepare_dataset(
@@ -41,6 +43,18 @@ def prepare_dataset(
             batched=False,
             desc="Formatting dataset",
         )
+    elif dataset_config.name == "cais/mmlu":
+        assert isinstance(prompt_config, MMLUPromptConfig)
+        assert isinstance(dataset_config, MMLUDatasetConfig)
+        if dataset_config.shuffle:
+            dataset = dataset.shuffle(seed=seed)
+        if dataset_config.subsample_ratio is not None:
+            dataset = dataset.select(range(int(len(dataset) * dataset_config.subsample_ratio)))
+        formatted_ds = dataset.map(
+            function=MMLUFormatter(prompt=prompt_config),
+            batched=False,
+            desc="Formatting dataset",
+        )
 
     if return_raw:
         return dataset, formatted_ds
@@ -55,5 +69,9 @@ def get_dataset(config: DatasetConfig, split: str | None) -> Dataset | DatasetDi
     elif config.name == "custom/common_claim":
         assert isinstance(config, CsvDatasetConfig)
         return load_custom_claim_dataset(config.local_dataset_path, config.dataset_url)
+    elif config.name == "cais/mmlu":
+        assert isinstance(config, MMLUDatasetConfig)
+        print(config.name, config.subset, split)
+        return load_dataset(config.name, name=config.subset, split=split)
     else:
         raise ValueError(f"Unknown dataset: {config.name}")

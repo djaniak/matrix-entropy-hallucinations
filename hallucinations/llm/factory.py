@@ -12,6 +12,8 @@ from transformers import (
 from hallucinations.config import LlmConfig
 
 LLAMA_3_MODELS = [
+    "meta-llama/Meta-Llama-3-8B",
+    "meta-llama/Meta-Llama-3-8B-Instruct",
     "meta-llama/Meta-Llama-3.1-8B",
     "meta-llama/Meta-Llama-3.1-8B-Instruct",
 ]
@@ -68,8 +70,8 @@ def _get_model_and_tokenizer(
     llm_config: LlmConfig,
     **kwargs: Any,
 ) -> tuple[PreTrainedModel, PreTrainedTokenizer]:
-    if llm_config.quantization_config is not None:
-        kwargs["quantization_config"] = BitsAndBytesConfig(**llm_config.quantization_config)
+    if llm_config.quantization is not None:
+        kwargs["quantization_config"] = BitsAndBytesConfig(**llm_config.quantization)
 
     model = AutoModelForCausalLM.from_pretrained(
         llm_config.name,

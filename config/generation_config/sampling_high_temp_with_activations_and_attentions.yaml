@@ -1,7 +1,9 @@
 max_new_tokens: ${dataset.max_answer_tokens}
 do_sample: true
 temperature: 1.0
-# allows to retrieve activations etc.
+min_new_tokens: 1
+
+# Allows to retrieve activations etc.
 return_dict_in_generate: true
 output_attentions: true
 output_hidden_states: true

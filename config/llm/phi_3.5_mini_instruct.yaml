@@ -5,4 +5,4 @@ context_size: 128_000
 compile: true
 torch_dtype: bfloat16
 attn_implementation: eager
-quantization_config: null
+quantization: null

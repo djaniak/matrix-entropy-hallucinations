@@ -1,8 +1,9 @@
 name: custom/common_claim
+cls_path: hallucinations.config.CsvDatasetConfig
 dataset_url: https://raw.githubusercontent.com/Algorithmic-Alignment-Lab/CommonClaim/main/common_claim.csv
 local_dataset_path: data/datasets/common_claim/dataset.csv
-test_split_name: null
-max_answer_tokens: 10
+test_split_name: ""
+max_answer_tokens: 1
 target_column_name: label
 
 # label_mode: binary

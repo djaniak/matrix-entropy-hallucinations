@@ -1,8 +1,8 @@
 content: |
-  Given the following statement, determine whether it is True or False based on common knowledge. Output only the label (True/False).
+  Given the following statement, determine whether it is True or False based on common knowledge. Answer only with the `True` or `False`.
 
   Statement: {statement}
-  Label:
+  Answer:
 
 statement_key: statement
 label_mode: binary

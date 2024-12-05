@@ -1,0 +1,9 @@
+content: |
+  Given the following statement, determine whether it is True or False based on common knowledge. Think through each part of the statement step by step. Answer only with the `True` or `False`.
+
+  Statement: {statement}
+  Answer:
+
+statement_key: statement
+label_mode: binary
+use_prompt: true

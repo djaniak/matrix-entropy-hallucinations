@@ -100,3 +100,844 @@ stages:
       hash: md5
       md5: b49671ad6001287a1f53e8d87873c979
       size: 1363
+  generate_activations@config0-42-sampling_low_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=nq_open
+      llm=llama_3.1_8b_instruct generation_config=sampling_low_temp_with_activations
+      prompt=qa/short_few_shot_sep batch_size=64 
+      results_dir=data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/nq_open.yaml
+      hash: md5
+      md5: fbff8667a0a46a0d0475696e03bdc46a
+      size: 273
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_low_temp_with_activations.yaml
+      hash: md5
+      md5: 4d0821ece2f22d6fc13224add2cd4908
+      size: 588
+    - path: config/llm/llama_3.1_8b_instruct.yaml
+      hash: md5
+      md5: d3a490fede786fbf028ae0ea7ac6c2a9
+      size: 202
+    - path: config/prompt/qa/short_few_shot_sep.yaml
+      hash: md5
+      md5: ec4cc2bd4ee97bd518839d2211cfe20c
+      size: 597
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: 5c7c8d97f923f4bd684d02301bd589a8
+      size: 3533
+    outs:
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/activations
+      hash: md5
+      md5: 2b29527597a2eff2d0799cfa40a0a3df.dir
+      size: 193214562866
+      nfiles: 57
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/answers.json
+      hash: md5
+      md5: 908a329a58d91e0addbbe6817d758cc6
+      size: 483062
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/config.yaml
+      hash: md5
+      md5: 5ed3474756266ff502028ca2d04af99d
+      size: 1450
+  generate_activations@config0-42-sampling_high_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=nq_open
+      llm=llama_3.1_8b_instruct generation_config=sampling_high_temp_with_activations
+      prompt=qa/short_few_shot_sep batch_size=64 
+      results_dir=data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/nq_open.yaml
+      hash: md5
+      md5: fbff8667a0a46a0d0475696e03bdc46a
+      size: 273
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_high_temp_with_activations.yaml
+      hash: md5
+      md5: 48b1600135afbe0c4ca3c416942c8c7c
+      size: 217
+    - path: config/llm/llama_3.1_8b_instruct.yaml
+      hash: md5
+      md5: d3a490fede786fbf028ae0ea7ac6c2a9
+      size: 202
+    - path: config/prompt/qa/short_few_shot_sep.yaml
+      hash: md5
+      md5: ec4cc2bd4ee97bd518839d2211cfe20c
+      size: 597
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: 5c7c8d97f923f4bd684d02301bd589a8
+      size: 3533
+    outs:
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/activations
+      hash: md5
+      md5: 36404bdd865de9514a82712063ed5856.dir
+      size: 193958552306
+      nfiles: 57
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/answers.json
+      hash: md5
+      md5: 2091d3f011d5503c693152136175d137
+      size: 508473
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/config.yaml
+      hash: md5
+      md5: bbf7ddfba5de0ac02d7248d4e5ce1d02
+      size: 1435
+  generate_activations@config2-42-sampling_low_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=common_claim
+      llm=llama_3_8b_instruct generation_config=sampling_low_temp_with_activations
+      prompt=cc/binary_pretrained batch_size=64 
+      results_dir=data/activations/common_claim/llama_3_8b_instruct/sampling_low_temp_with_activations__prompt_cc/binary_pretrained__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/common_claim.yaml
+      hash: md5
+      md5: 7b52d526da5bdeddbb1b7375428e6849
+      size: 679
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_low_temp_with_activations.yaml
+      hash: md5
+      md5: 4d0821ece2f22d6fc13224add2cd4908
+      size: 588
+    - path: config/llm/llama_3_8b_instruct.yaml
+      hash: md5
+      md5: 4dc242e12336a91893582e1b21e7d194
+      size: 200
+    - path: config/prompt/cc/binary_pretrained.yaml
+      hash: md5
+      md5: 8fb5f5d56869c67129eac98ae090af67
+      size: 233
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: 5c7c8d97f923f4bd684d02301bd589a8
+      size: 3533
+    outs:
+    - path: 
+        data/activations/common_claim/llama_3_8b_instruct/sampling_low_temp_with_activations__prompt_cc/binary_pretrained__seed_42/activations
+      hash: md5
+      md5: 8db66dfd6263aff5a26fadccc48b86fa.dir
+      size: 68264348124
+      nfiles: 70
+    - path: 
+        data/activations/common_claim/llama_3_8b_instruct/sampling_low_temp_with_activations__prompt_cc/binary_pretrained__seed_42/answers.json
+      hash: md5
+      md5: 482b5f947a72d42ac063df30dd9fe15d
+      size: 216831
+    - path: 
+        data/activations/common_claim/llama_3_8b_instruct/sampling_low_temp_with_activations__prompt_cc/binary_pretrained__seed_42/config.yaml
+      hash: md5
+      md5: bd4d7ae19b87eea3217be8e32fa515a0
+      size: 1373
+  generate_activations@config1-42-sampling_low_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=common_claim
+      llm=llama_3_8b_instruct generation_config=sampling_low_temp_with_activations
+      prompt=cc/binary batch_size=64 
+      results_dir=data/activations/common_claim/llama_3_8b_instruct/sampling_low_temp_with_activations__prompt_cc/binary__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/common_claim.yaml
+      hash: md5
+      md5: 7b52d526da5bdeddbb1b7375428e6849
+      size: 679
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_low_temp_with_activations.yaml
+      hash: md5
+      md5: 4d0821ece2f22d6fc13224add2cd4908
+      size: 588
+    - path: config/llm/llama_3_8b_instruct.yaml
+      hash: md5
+      md5: 4dc242e12336a91893582e1b21e7d194
+      size: 200
+    - path: config/prompt/cc/binary.yaml
+      hash: md5
+      md5: e82f1882c39c29e58cc1e7288103f667
+      size: 247
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: 5c7c8d97f923f4bd684d02301bd589a8
+      size: 3533
+    outs:
+    - path: 
+        data/activations/common_claim/llama_3_8b_instruct/sampling_low_temp_with_activations__prompt_cc/binary__seed_42/activations
+      hash: md5
+      md5: a9cb15c25fdaff6a490e7f869dd00b23.dir
+      size: 76218674140
+      nfiles: 70
+    - path: 
+        data/activations/common_claim/llama_3_8b_instruct/sampling_low_temp_with_activations__prompt_cc/binary__seed_42/answers.json
+      hash: md5
+      md5: ce566396d9ee2ac56406822731aa2b1f
+      size: 218001
+    - path: 
+        data/activations/common_claim/llama_3_8b_instruct/sampling_low_temp_with_activations__prompt_cc/binary__seed_42/config.yaml
+      hash: md5
+      md5: 06dc26fd7af68fd7b890cee61f7fdfc9
+      size: 1376
+  generate_activations@config3-42-sampling_low_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=common_claim
+      llm=llama_3_8b generation_config=sampling_low_temp_with_activations prompt=cc/binary
+      batch_size=64 
+      results_dir=data/activations/common_claim/llama_3_8b/sampling_low_temp_with_activations__prompt_cc/binary__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/common_claim.yaml
+      hash: md5
+      md5: 7b52d526da5bdeddbb1b7375428e6849
+      size: 679
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_low_temp_with_activations.yaml
+      hash: md5
+      md5: 4d0821ece2f22d6fc13224add2cd4908
+      size: 588
+    - path: config/llm/llama_3_8b.yaml
+      hash: md5
+      md5: 1b4e8d98ef2dd46f2b7e83afc0926cdd
+      size: 191
+    - path: config/prompt/cc/binary.yaml
+      hash: md5
+      md5: e82f1882c39c29e58cc1e7288103f667
+      size: 247
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: 5c7c8d97f923f4bd684d02301bd589a8
+      size: 3533
+    outs:
+    - path: 
+        data/activations/common_claim/llama_3_8b/sampling_low_temp_with_activations__prompt_cc/binary__seed_42/activations
+      hash: md5
+      md5: ea39a5fe49934551fc55b58b5c1f0ef9.dir
+      size: 64187965596
+      nfiles: 70
+    - path: 
+        data/activations/common_claim/llama_3_8b/sampling_low_temp_with_activations__prompt_cc/binary__seed_42/answers.json
+      hash: md5
+      md5: bada2ed33b8f57f6916844ea7f8f2b3c
+      size: 207354
+    - path: 
+        data/activations/common_claim/llama_3_8b/sampling_low_temp_with_activations__prompt_cc/binary__seed_42/config.yaml
+      hash: md5
+      md5: 4856af83ee90cf32c51fa1de97faece2
+      size: 1349
+  generate_activations@config3-42-sampling_high_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=common_claim
+      llm=llama_3_8b generation_config=sampling_high_temp_with_activations prompt=cc/binary
+      batch_size=64 
+      results_dir=data/activations/common_claim/llama_3_8b/sampling_high_temp_with_activations__prompt_cc/binary__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/common_claim.yaml
+      hash: md5
+      md5: 7b52d526da5bdeddbb1b7375428e6849
+      size: 679
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_high_temp_with_activations.yaml
+      hash: md5
+      md5: 48b1600135afbe0c4ca3c416942c8c7c
+      size: 217
+    - path: config/llm/llama_3_8b.yaml
+      hash: md5
+      md5: 1b4e8d98ef2dd46f2b7e83afc0926cdd
+      size: 191
+    - path: config/prompt/cc/binary.yaml
+      hash: md5
+      md5: e82f1882c39c29e58cc1e7288103f667
+      size: 247
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: 5c7c8d97f923f4bd684d02301bd589a8
+      size: 3533
+    outs:
+    - path: 
+        data/activations/common_claim/llama_3_8b/sampling_high_temp_with_activations__prompt_cc/binary__seed_42/activations
+      hash: md5
+      md5: ea39a5fe49934551fc55b58b5c1f0ef9.dir
+      size: 64187965596
+      nfiles: 70
+    - path: 
+        data/activations/common_claim/llama_3_8b/sampling_high_temp_with_activations__prompt_cc/binary__seed_42/answers.json
+      hash: md5
+      md5: 606fd9707cd491b7a1639474a1f849ff
+      size: 214633
+    - path: 
+        data/activations/common_claim/llama_3_8b/sampling_high_temp_with_activations__prompt_cc/binary__seed_42/config.yaml
+      hash: md5
+      md5: a12f28fbf283697047e2b7caddf27495
+      size: 1310
+  generate_activations@config4-42-sampling_low_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=common_claim
+      llm=llama_3_8b generation_config=sampling_low_temp_with_activations prompt=cc/binary_pretrained
+      batch_size=64 
+      results_dir=data/activations/common_claim/llama_3_8b/sampling_low_temp_with_activations__prompt_cc/binary_pretrained__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/common_claim.yaml
+      hash: md5
+      md5: 7b52d526da5bdeddbb1b7375428e6849
+      size: 679
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_low_temp_with_activations.yaml
+      hash: md5
+      md5: 4d0821ece2f22d6fc13224add2cd4908
+      size: 588
+    - path: config/llm/llama_3_8b.yaml
+      hash: md5
+      md5: 1b4e8d98ef2dd46f2b7e83afc0926cdd
+      size: 191
+    - path: config/prompt/cc/binary_pretrained.yaml
+      hash: md5
+      md5: 8fb5f5d56869c67129eac98ae090af67
+      size: 233
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: 5c7c8d97f923f4bd684d02301bd589a8
+      size: 3533
+    outs:
+    - path: 
+        data/activations/common_claim/llama_3_8b/sampling_low_temp_with_activations__prompt_cc/binary_pretrained__seed_42/activations
+      hash: md5
+      md5: 77df218efeb02f92677849272fe7b4ee.dir
+      size: 56233639644
+      nfiles: 70
+    - path: 
+        data/activations/common_claim/llama_3_8b/sampling_low_temp_with_activations__prompt_cc/binary_pretrained__seed_42/answers.json
+      hash: md5
+      md5: 59564219ec06ad1b85e7fc2ebc24f930
+      size: 221659
+    - path: 
+        data/activations/common_claim/llama_3_8b/sampling_low_temp_with_activations__prompt_cc/binary_pretrained__seed_42/config.yaml
+      hash: md5
+      md5: d56451b7d8bf13e3570effde84dba853
+      size: 1346
+  generate_activations@config4-42-sampling_high_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=common_claim
+      llm=llama_3_8b generation_config=sampling_high_temp_with_activations prompt=cc/binary_pretrained
+      batch_size=64 
+      results_dir=data/activations/common_claim/llama_3_8b/sampling_high_temp_with_activations__prompt_cc/binary_pretrained__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/common_claim.yaml
+      hash: md5
+      md5: 7b52d526da5bdeddbb1b7375428e6849
+      size: 679
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_high_temp_with_activations.yaml
+      hash: md5
+      md5: 48b1600135afbe0c4ca3c416942c8c7c
+      size: 217
+    - path: config/llm/llama_3_8b.yaml
+      hash: md5
+      md5: 1b4e8d98ef2dd46f2b7e83afc0926cdd
+      size: 191
+    - path: config/prompt/cc/binary_pretrained.yaml
+      hash: md5
+      md5: 8fb5f5d56869c67129eac98ae090af67
+      size: 233
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: 5c7c8d97f923f4bd684d02301bd589a8
+      size: 3533
+    outs:
+    - path: 
+        data/activations/common_claim/llama_3_8b/sampling_high_temp_with_activations__prompt_cc/binary_pretrained__seed_42/activations
+      hash: md5
+      md5: 77df218efeb02f92677849272fe7b4ee.dir
+      size: 56233639644
+      nfiles: 70
+    - path: 
+        data/activations/common_claim/llama_3_8b/sampling_high_temp_with_activations__prompt_cc/binary_pretrained__seed_42/answers.json
+      hash: md5
+      md5: ef8fa79b7e6300fb0afffa2c0062e3f1
+      size: 221591
+    - path: 
+        data/activations/common_claim/llama_3_8b/sampling_high_temp_with_activations__prompt_cc/binary_pretrained__seed_42/config.yaml
+      hash: md5
+      md5: 4984069e0c21f19d75d822b6fa489e1c
+      size: 1307
+  generate_activations@config2-42-sampling_high_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=common_claim
+      llm=llama_3_8b_instruct generation_config=sampling_high_temp_with_activations
+      prompt=cc/binary_pretrained batch_size=64 
+      results_dir=data/activations/common_claim/llama_3_8b_instruct/sampling_high_temp_with_activations__prompt_cc/binary_pretrained__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/common_claim.yaml
+      hash: md5
+      md5: 7b52d526da5bdeddbb1b7375428e6849
+      size: 679
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_high_temp_with_activations.yaml
+      hash: md5
+      md5: 48b1600135afbe0c4ca3c416942c8c7c
+      size: 217
+    - path: config/llm/llama_3_8b_instruct.yaml
+      hash: md5
+      md5: 4dc242e12336a91893582e1b21e7d194
+      size: 200
+    - path: config/prompt/cc/binary_pretrained.yaml
+      hash: md5
+      md5: 8fb5f5d56869c67129eac98ae090af67
+      size: 233
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: 5c7c8d97f923f4bd684d02301bd589a8
+      size: 3533
+    outs:
+    - path: 
+        data/activations/common_claim/llama_3_8b_instruct/sampling_high_temp_with_activations__prompt_cc/binary_pretrained__seed_42/activations
+      hash: md5
+      md5: 8db66dfd6263aff5a26fadccc48b86fa.dir
+      size: 68264348124
+      nfiles: 70
+    - path: 
+        data/activations/common_claim/llama_3_8b_instruct/sampling_high_temp_with_activations__prompt_cc/binary_pretrained__seed_42/answers.json
+      hash: md5
+      md5: f0e51e26fdb084e7b16504a334b2cc3b
+      size: 215679
+    - path: 
+        data/activations/common_claim/llama_3_8b_instruct/sampling_high_temp_with_activations__prompt_cc/binary_pretrained__seed_42/config.yaml
+      hash: md5
+      md5: f1da2169363a5e3c4444c401c214b81f
+      size: 1334
+  generate_trajectories@config8-42:
+    cmd: PYTHONPATH=. python scripts/trajectory/generate_trajectories.py dataset=mmlu
+      llm=llama_3_8b_instruct llm.torch_dtype=float32 lens=tuned topk_tokens=100 prompt=mmlu/cot
+      results_dir=data/trajectories/mmlu/llama_3_8b_instruct/tuned/mmlu/cot/seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/mmlu.yaml
+      hash: md5
+      md5: 66eb890497dceade9ee0410232975a24
+      size: 183
+    - path: config/generate_trajectories.yaml
+      hash: md5
+      md5: 1980cd1df717a7ef0c0dd0f715a1de46
+      size: 180
+    - path: config/llm/llama_3_8b_instruct.yaml
+      hash: md5
+      md5: 4dc242e12336a91893582e1b21e7d194
+      size: 200
+    - path: config/prompt/mmlu/cot.yaml
+      hash: md5
+      md5: 97d17239e2652baa2174341e7c3382c7
+      size: 441
+    - path: scripts/trajectory/generate_trajectories.py
+      hash: md5
+      md5: 3af9678989eb13b0684014e42e5948e1
+      size: 6626
+    outs:
+    - path: data/trajectories/mmlu/llama_3_8b_instruct/tuned/mmlu/cot/seed_42/answers.jsonl
+      hash: md5
+      md5: def686662fe6ff5a2fab9fb6fc445aed
+      size: 1010056
+    - path: data/trajectories/mmlu/llama_3_8b_instruct/tuned/mmlu/cot/seed_42/config.yaml
+      hash: md5
+      md5: 7d39f0545abf35d732d6a20516ec164a
+      size: 1160
+    - path: data/trajectories/mmlu/llama_3_8b_instruct/tuned/mmlu/cot/seed_42/stats.jsonl
+      hash: md5
+      md5: 7d124a40fe4c270c73a5df610e545af7
+      size: 15881160
+  generate_trajectories@config9-42:
+    cmd: PYTHONPATH=. python scripts/trajectory/generate_trajectories.py dataset=mmlu
+      llm=llama_3_8b llm.torch_dtype=float32 lens=tuned topk_tokens=100 prompt=mmlu/pretrained
+      results_dir=data/trajectories/mmlu/llama_3_8b/tuned/mmlu/pretrained/seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/mmlu.yaml
+      hash: md5
+      md5: 66eb890497dceade9ee0410232975a24
+      size: 183
+    - path: config/generate_trajectories.yaml
+      hash: md5
+      md5: 1980cd1df717a7ef0c0dd0f715a1de46
+      size: 180
+    - path: config/llm/llama_3_8b.yaml
+      hash: md5
+      md5: 1b4e8d98ef2dd46f2b7e83afc0926cdd
+      size: 191
+    - path: config/prompt/mmlu/pretrained.yaml
+      hash: md5
+      md5: 588b3dedd4f5242f8ebc867d03ad110a
+      size: 265
+    - path: scripts/trajectory/generate_trajectories.py
+      hash: md5
+      md5: 3af9678989eb13b0684014e42e5948e1
+      size: 6626
+    outs:
+    - path: data/trajectories/mmlu/llama_3_8b/tuned/mmlu/pretrained/seed_42/answers.jsonl
+      hash: md5
+      md5: 5a4d57cbc199843cc65dc56dcfb22717
+      size: 1022167
+    - path: data/trajectories/mmlu/llama_3_8b/tuned/mmlu/pretrained/seed_42/config.yaml
+      hash: md5
+      md5: 8d47c8eb5e77c7af2aea6ed147dca54d
+      size: 971
+    - path: data/trajectories/mmlu/llama_3_8b/tuned/mmlu/pretrained/seed_42/stats.jsonl
+      hash: md5
+      md5: d5b7ee7147f36507eef456ebb1e797c4
+      size: 13829677
+  generate_trajectories@config7-42:
+    cmd: PYTHONPATH=. python scripts/trajectory/generate_trajectories.py dataset=mmlu
+      llm=llama_3_8b_instruct llm.torch_dtype=float32 lens=tuned topk_tokens=100 prompt=mmlu/pretrained
+      results_dir=data/trajectories/mmlu/llama_3_8b_instruct/tuned/mmlu/pretrained/seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/mmlu.yaml
+      hash: md5
+      md5: 66eb890497dceade9ee0410232975a24
+      size: 183
+    - path: config/generate_trajectories.yaml
+      hash: md5
+      md5: 1980cd1df717a7ef0c0dd0f715a1de46
+      size: 180
+    - path: config/llm/llama_3_8b_instruct.yaml
+      hash: md5
+      md5: 4dc242e12336a91893582e1b21e7d194
+      size: 200
+    - path: config/prompt/mmlu/pretrained.yaml
+      hash: md5
+      md5: 588b3dedd4f5242f8ebc867d03ad110a
+      size: 265
+    - path: scripts/trajectory/generate_trajectories.py
+      hash: md5
+      md5: 3af9678989eb13b0684014e42e5948e1
+      size: 6626
+    outs:
+    - path: 
+        data/trajectories/mmlu/llama_3_8b_instruct/tuned/mmlu/pretrained/seed_42/answers.jsonl
+      hash: md5
+      md5: ff9b20b1c437de46b74044c177782d7d
+      size: 1010445
+    - path: 
+        data/trajectories/mmlu/llama_3_8b_instruct/tuned/mmlu/pretrained/seed_42/config.yaml
+      hash: md5
+      md5: 74f6fc66c0afa245acadaf39425ccd3e
+      size: 998
+    - path: 
+        data/trajectories/mmlu/llama_3_8b_instruct/tuned/mmlu/pretrained/seed_42/stats.jsonl
+      hash: md5
+      md5: 85b1dec1321d072358a13ee9f6aba7c8
+      size: 15987778
+  generate_trajectories@config6-42:
+    cmd: PYTHONPATH=. python scripts/trajectory/generate_trajectories.py dataset=mmlu
+      llm=llama_3_8b llm.torch_dtype=float32 lens=tuned topk_tokens=100 prompt=mmlu/pretrained
+      results_dir=data/trajectories/mmlu/llama_3_8b/tuned/mmlu/pretrained/seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/mmlu.yaml
+      hash: md5
+      md5: 66eb890497dceade9ee0410232975a24
+      size: 183
+    - path: config/generate_trajectories.yaml
+      hash: md5
+      md5: 1980cd1df717a7ef0c0dd0f715a1de46
+      size: 180
+    - path: config/llm/llama_3_8b.yaml
+      hash: md5
+      md5: 1b4e8d98ef2dd46f2b7e83afc0926cdd
+      size: 191
+    - path: config/prompt/mmlu/pretrained.yaml
+      hash: md5
+      md5: 588b3dedd4f5242f8ebc867d03ad110a
+      size: 265
+    - path: scripts/trajectory/generate_trajectories.py
+      hash: md5
+      md5: 3af9678989eb13b0684014e42e5948e1
+      size: 6626
+    outs:
+    - path: data/trajectories/mmlu/llama_3_8b/tuned/mmlu/pretrained/seed_42/answers.jsonl
+      hash: md5
+      md5: 5a4d57cbc199843cc65dc56dcfb22717
+      size: 1022167
+    - path: data/trajectories/mmlu/llama_3_8b/tuned/mmlu/pretrained/seed_42/config.yaml
+      hash: md5
+      md5: 8d47c8eb5e77c7af2aea6ed147dca54d
+      size: 971
+    - path: data/trajectories/mmlu/llama_3_8b/tuned/mmlu/pretrained/seed_42/stats.jsonl
+      hash: md5
+      md5: d5b7ee7147f36507eef456ebb1e797c4
+      size: 13829677
+  generate_trajectories@config5-42:
+    cmd: PYTHONPATH=. python scripts/trajectory/generate_trajectories.py dataset=mmlu
+      llm=llama_3_8b_instruct llm.torch_dtype=float32 lens=tuned topk_tokens=100 prompt=mmlu/simple
+      results_dir=data/trajectories/mmlu/llama_3_8b_instruct/tuned/mmlu/simple/seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/mmlu.yaml
+      hash: md5
+      md5: 66eb890497dceade9ee0410232975a24
+      size: 183
+    - path: config/generate_trajectories.yaml
+      hash: md5
+      md5: 1980cd1df717a7ef0c0dd0f715a1de46
+      size: 180
+    - path: config/llm/llama_3_8b_instruct.yaml
+      hash: md5
+      md5: 4dc242e12336a91893582e1b21e7d194
+      size: 200
+    - path: config/prompt/mmlu/simple.yaml
+      hash: md5
+      md5: 5203bd55f21411e9f9072555ea444f08
+      size: 314
+    - path: scripts/trajectory/generate_trajectories.py
+      hash: md5
+      md5: 3af9678989eb13b0684014e42e5948e1
+      size: 6626
+    outs:
+    - path: 
+        data/trajectories/mmlu/llama_3_8b_instruct/tuned/mmlu/simple/seed_42/answers.jsonl
+      hash: md5
+      md5: 0096cd66126b0923d7abc75d5f44d6c6
+      size: 1005344
+    - path: data/trajectories/mmlu/llama_3_8b_instruct/tuned/mmlu/simple/seed_42/config.yaml
+      hash: md5
+      md5: 1bf8450ada19a553973363b10f93f3aa
+      size: 1025
+    - path: data/trajectories/mmlu/llama_3_8b_instruct/tuned/mmlu/simple/seed_42/stats.jsonl
+      hash: md5
+      md5: b58abcc14aa8582e9f2fb84689bb5826
+      size: 16233747
+  generate_trajectories@config4-42:
+    cmd: PYTHONPATH=. python scripts/trajectory/generate_trajectories.py dataset=mmlu
+      llm=llama_3_8b_instruct llm.torch_dtype=float32 lens=tuned topk_tokens=100 prompt=mmlu/default
+      results_dir=data/trajectories/mmlu/llama_3_8b_instruct/tuned/mmlu/default/seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/mmlu.yaml
+      hash: md5
+      md5: 66eb890497dceade9ee0410232975a24
+      size: 183
+    - path: config/generate_trajectories.yaml
+      hash: md5
+      md5: 1980cd1df717a7ef0c0dd0f715a1de46
+      size: 180
+    - path: config/llm/llama_3_8b_instruct.yaml
+      hash: md5
+      md5: 4dc242e12336a91893582e1b21e7d194
+      size: 200
+    - path: config/prompt/mmlu/default.yaml
+      hash: md5
+      md5: 2aa53d931494b5ba554d0049de2264e6
+      size: 357
+    - path: scripts/trajectory/generate_trajectories.py
+      hash: md5
+      md5: 3af9678989eb13b0684014e42e5948e1
+      size: 6626
+    outs:
+    - path: 
+        data/trajectories/mmlu/llama_3_8b_instruct/tuned/mmlu/default/seed_42/answers.jsonl
+      hash: md5
+      md5: 87b46d935d79eeab3ef3219b3bb306a0
+      size: 1005321
+    - path: 
+        data/trajectories/mmlu/llama_3_8b_instruct/tuned/mmlu/default/seed_42/config.yaml
+      hash: md5
+      md5: 21c5403486b59148000a662f82b45846
+      size: 1075
+    - path: 
+        data/trajectories/mmlu/llama_3_8b_instruct/tuned/mmlu/default/seed_42/stats.jsonl
+      hash: md5
+      md5: 09a8f7ce3d920ffc3e21977329969544
+      size: 16230182
+  generate_trajectories@config3-42:
+    cmd: PYTHONPATH=. python scripts/trajectory/generate_trajectories.py dataset=common_claim
+      llm=llama_3_8b_instruct llm.torch_dtype=float32 lens=tuned topk_tokens=100 prompt=cc/binary_cot
+      results_dir=data/trajectories/common_claim/llama_3_8b_instruct/tuned/cc/binary_cot/seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/common_claim.yaml
+      hash: md5
+      md5: 7b52d526da5bdeddbb1b7375428e6849
+      size: 679
+    - path: config/generate_trajectories.yaml
+      hash: md5
+      md5: 1980cd1df717a7ef0c0dd0f715a1de46
+      size: 180
+    - path: config/llm/llama_3_8b_instruct.yaml
+      hash: md5
+      md5: 4dc242e12336a91893582e1b21e7d194
+      size: 200
+    - path: config/prompt/cc/binary_cot.yaml
+      hash: md5
+      md5: f73350548df535e94f2c18152c334809
+      size: 302
+    - path: scripts/trajectory/generate_trajectories.py
+      hash: md5
+      md5: 3af9678989eb13b0684014e42e5948e1
+      size: 6626
+    outs:
+    - path: 
+        data/trajectories/common_claim/llama_3_8b_instruct/tuned/cc/binary_cot/seed_42/answers.jsonl
+      hash: md5
+      md5: ed8408610cfa1a22491d55402504418a
+      size: 551470
+    - path: 
+        data/trajectories/common_claim/llama_3_8b_instruct/tuned/cc/binary_cot/seed_42/config.yaml
+      hash: md5
+      md5: bbb9d0e77b6d2c4f00bf59e38be63c45
+      size: 1208
+    - path: 
+        data/trajectories/common_claim/llama_3_8b_instruct/tuned/cc/binary_cot/seed_42/stats.jsonl
+      hash: md5
+      md5: db3917b672f8c2ce8ae6d4e9fea9da47
+      size: 17855937
+  generate_trajectories@config2-42:
+    cmd: PYTHONPATH=. python scripts/trajectory/generate_trajectories.py dataset=common_claim
+      llm=llama_3_8b llm.torch_dtype=float32 lens=tuned topk_tokens=100 prompt=cc/binary_pretrained
+      results_dir=data/trajectories/common_claim/llama_3_8b/tuned/cc/binary_pretrained/seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/common_claim.yaml
+      hash: md5
+      md5: 7b52d526da5bdeddbb1b7375428e6849
+      size: 679
+    - path: config/generate_trajectories.yaml
+      hash: md5
+      md5: 1980cd1df717a7ef0c0dd0f715a1de46
+      size: 180
+    - path: config/llm/llama_3_8b.yaml
+      hash: md5
+      md5: 1b4e8d98ef2dd46f2b7e83afc0926cdd
+      size: 191
+    - path: config/prompt/cc/binary_pretrained.yaml
+      hash: md5
+      md5: 8fb5f5d56869c67129eac98ae090af67
+      size: 233
+    - path: scripts/trajectory/generate_trajectories.py
+      hash: md5
+      md5: 3af9678989eb13b0684014e42e5948e1
+      size: 6626
+    outs:
+    - path: 
+        data/trajectories/common_claim/llama_3_8b/tuned/cc/binary_pretrained/seed_42/answers.jsonl
+      hash: md5
+      md5: b6faf5cb7e6085c26dfbac4cdb6d68d1
+      size: 577263
+    - path: 
+        data/trajectories/common_claim/llama_3_8b/tuned/cc/binary_pretrained/seed_42/config.yaml
+      hash: md5
+      md5: eb7e0093f95996fe256cfa9cec0a0b2c
+      size: 1120
+    - path: 
+        data/trajectories/common_claim/llama_3_8b/tuned/cc/binary_pretrained/seed_42/stats.jsonl
+      hash: md5
+      md5: f8b90f9e2c6ad0a43dd14d5883d5f4c9
+      size: 19080958
+  generate_trajectories@config1-42:
+    cmd: PYTHONPATH=. python scripts/trajectory/generate_trajectories.py dataset=common_claim
+      llm=llama_3_8b_instruct llm.torch_dtype=float32 lens=tuned topk_tokens=100 prompt=cc/binary_pretrained
+      results_dir=data/trajectories/common_claim/llama_3_8b_instruct/tuned/cc/binary_pretrained/seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/common_claim.yaml
+      hash: md5
+      md5: 7b52d526da5bdeddbb1b7375428e6849
+      size: 679
+    - path: config/generate_trajectories.yaml
+      hash: md5
+      md5: 1980cd1df717a7ef0c0dd0f715a1de46
+      size: 180
+    - path: config/llm/llama_3_8b_instruct.yaml
+      hash: md5
+      md5: 4dc242e12336a91893582e1b21e7d194
+      size: 200
+    - path: config/prompt/cc/binary_pretrained.yaml
+      hash: md5
+      md5: 8fb5f5d56869c67129eac98ae090af67
+      size: 233
+    - path: scripts/trajectory/generate_trajectories.py
+      hash: md5
+      md5: 3af9678989eb13b0684014e42e5948e1
+      size: 6626
+    outs:
+    - path: 
+        data/trajectories/common_claim/llama_3_8b_instruct/tuned/cc/binary_pretrained/seed_42/answers.jsonl
+      hash: md5
+      md5: 92e1ef3c3790910da8bb29ebfd088f7d
+      size: 550021
+    - path: 
+        data/trajectories/common_claim/llama_3_8b_instruct/tuned/cc/binary_pretrained/seed_42/config.yaml
+      hash: md5
+      md5: 6d5b9a08fe94ae4ab1e27f5fb03e2d0f
+      size: 1147
+    - path: 
+        data/trajectories/common_claim/llama_3_8b_instruct/tuned/cc/binary_pretrained/seed_42/stats.jsonl
+      hash: md5
+      md5: a115b015e19e910c11b285dfa96afc74
+      size: 17891944
+  generate_trajectories@config0-42:
+    cmd: PYTHONPATH=. python scripts/trajectory/generate_trajectories.py dataset=common_claim
+      llm=llama_3_8b_instruct llm.torch_dtype=float32 lens=tuned topk_tokens=100 prompt=cc/binary
+      results_dir=data/trajectories/common_claim/llama_3_8b_instruct/tuned/cc/binary/seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/common_claim.yaml
+      hash: md5
+      md5: 7b52d526da5bdeddbb1b7375428e6849
+      size: 679
+    - path: config/generate_trajectories.yaml
+      hash: md5
+      md5: 1980cd1df717a7ef0c0dd0f715a1de46
+      size: 180
+    - path: config/llm/llama_3_8b_instruct.yaml
+      hash: md5
+      md5: 4dc242e12336a91893582e1b21e7d194
+      size: 200
+    - path: config/prompt/cc/binary.yaml
+      hash: md5
+      md5: e82f1882c39c29e58cc1e7288103f667
+      size: 247
+    - path: scripts/trajectory/generate_trajectories.py
+      hash: md5
+      md5: 3af9678989eb13b0684014e42e5948e1
+      size: 6626
+    outs:
+    - path: 
+        data/trajectories/common_claim/llama_3_8b_instruct/tuned/cc/binary/seed_42/answers.jsonl
+      hash: md5
+      md5: d82f9d92606c4f107bdb03c14a1904ad
+      size: 550999
+    - path: 
+        data/trajectories/common_claim/llama_3_8b_instruct/tuned/cc/binary/seed_42/config.yaml
+      hash: md5
+      md5: a246d67b6c9fe570f9bd8ab935195142
+      size: 1149
+    - path: 
+        data/trajectories/common_claim/llama_3_8b_instruct/tuned/cc/binary/seed_42/stats.jsonl
+      hash: md5
+      md5: b4c5598bd4490dade4f411083a3fd924
+      size: 18155317

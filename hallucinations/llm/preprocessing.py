@@ -16,7 +16,9 @@ class SimpleEncoder:
                 tokenize=False,
             )
         except ValueError:
-            assert all(len(item) == 1 for item in batch["messages"])
-            final_input = [item[0]["content"] for item in batch["messages"]]
+            assert all(
+                len(item) == 1 for item in batch["messages"]
+            ), f"Expected single message in batch, got {batch['messages']}"
+            final_input = [item[0]["content"].rstrip() for item in batch["messages"]]
 
         return self.tokenizer(final_input, return_tensors="pt", padding="longest", truncation=False)

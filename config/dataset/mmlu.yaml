@@ -1,0 +1,8 @@
+name: cais/mmlu
+cls_path: hallucinations.config.MMLUDatasetConfig
+subset: all
+test_split_name: test
+max_answer_tokens: 1
+target_column_name: answer
+shuffle: true
+subsample_ratio: 0.2

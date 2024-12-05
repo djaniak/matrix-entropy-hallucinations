@@ -1,0 +1,10 @@
+content: |
+  Given the following statement, determine whether it is True or False based on common knowledge.
+
+  {statement}
+
+  Based on common knowledge, the statement is
+
+statement_key: statement
+label_mode: binary
+use_prompt: true

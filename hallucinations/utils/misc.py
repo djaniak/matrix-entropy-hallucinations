@@ -1,4 +1,5 @@
 import json
+from importlib import import_module
 from pathlib import Path
 from typing import Any
 
@@ -65,3 +66,10 @@ def save_json(path: Path, data: dict[str, Any] | list[Any]) -> None:
 def save_yaml(path: Path, data: dict[str, Any]) -> None:
     with path.open("w") as f:
         yaml.dump(data, f)
+
+
+def import_cls_from_str(name: str) -> type:
+    name = name.split(".")  # type: ignore
+    module = import_module(".".join(name[:-1]))
+    assert hasattr(module, name[-1]), f"Unknown class: {name[-1]}"
+    return getattr(module, name[-1])

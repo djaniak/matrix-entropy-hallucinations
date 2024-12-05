@@ -1,6 +1,6 @@
 from typing import Any
 
-from hallucinations.config import CcPromptConfig, PromptConfig, QaPromptConfig
+from hallucinations.config import CcPromptConfig, MMLUPromptConfig, PromptConfig, QaPromptConfig
 
 
 class DatasetFormatter:
@@ -47,6 +47,30 @@ class CommonClaimFormatter(DatasetFormatter):
         else:  # Use the statement as the prompt when use_prompt is False
             content = item[self.prompt.statement_key]
 
+        messages = {
+            "messages": [
+                {
+                    "role": "user",
+                    "content": content,
+                }
+            ]
+        }
+
+        return messages
+
+
+class MMLUFormatter(DatasetFormatter):
+    def __init__(self, prompt: MMLUPromptConfig):
+        self.prompt: MMLUPromptConfig = prompt
+
+    def __call__(self, item: dict[str, Any]) -> dict[str, Any]:
+        content = self.prompt.content.format(
+            **{
+                self.prompt.question_key: item[self.prompt.question_key],
+                self.prompt.subject_key: item[self.prompt.subject_key].replace("_", " "),
+                self.prompt.choices_key: item[self.prompt.choices_key],
+            }
+        )
         messages = {
             "messages": [
                 {

@@ -1,0 +1,15 @@
+content: |
+  Given the following question, what is the correct answer (A, B, C, or D)?
+
+  {question}
+
+  A) {choices[0]}
+  B) {choices[1]}
+  C) {choices[2]}
+  D) {choices[3]}
+
+  The correct answer is
+
+subject_key: subject
+question_key: question
+choices_key: choices

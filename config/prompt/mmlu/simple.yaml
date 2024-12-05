@@ -1,0 +1,14 @@
+content: |
+  Select the correct answer (A, B, C, or D) to the question below. Respond only with the letter of your choice.
+
+  Question: {question}
+  Choices:
+    A) {choices[0]}
+    B) {choices[1]}
+    C) {choices[2]}
+    D) {choices[3]}
+  Answer:
+
+subject_key: subject
+question_key: question
+choices_key: choices

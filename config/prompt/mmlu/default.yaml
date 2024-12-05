@@ -1,0 +1,15 @@
+content: |
+  You are an expert in {subject}. Below is a question with multiple choices.
+  Choose the correct answer by replying only with the letter (A, B, C, or D).
+
+  Question: {question}
+  Choices:
+    A) {choices[0]}
+    B) {choices[1]}
+    C) {choices[2]}
+    D) {choices[3]}
+  Answer:
+
+subject_key: subject
+question_key: question
+choices_key: choices
