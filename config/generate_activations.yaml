@@ -9,3 +9,4 @@ split: ${dataset.test_split_name}
 batch_size: 64
 results_dir: ???
 random_seed: ???
+multiple_samples: false

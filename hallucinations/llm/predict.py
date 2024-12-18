@@ -1,5 +1,8 @@
 import time
+from collections import defaultdict
+from typing import Any
 
+import numpy as np
 import torch
 from datasets import Dataset
 from torch import Tensor
@@ -77,6 +80,118 @@ def predict_with_llm(
                 skip_special_tokens=True,
             )
             model_outputs.extend(decoded)
+
+            stats = {
+                "input_size": input_length,
+                "throughput": f"{generated_ids.numel() / duration:0.2f} tok/sec",
+                "mean(#special_tokens)": f"{(1 - attention_mask).float().mean().item():0.3f}",
+            }
+            pbar.set_postfix(stats)
+
+            del outputs, input_ids, attention_mask, generated_ids
+            torch.cuda.empty_cache()
+
+    return model_outputs
+
+
+@torch.inference_mode()
+def predict_multiple_samples(
+    model: PreTrainedModel,
+    tokenizer: PreTrainedTokenizer,
+    dataset: Dataset,
+    generation_config: GenerationConfig,
+    generate_most_likely: bool,
+    low_temperature: float,
+    high_temperature: float,
+    num_generations: int,
+    activation_storage: ActivationStorage | None,
+    batch_size: int,
+    num_proc: int,
+) -> dict[str, Any]:
+    """
+    Generate multiple samples from the model using two temperatures:
+    - one low temperature sample for deterministic output,
+    - multiple high temperature samples for diversity.
+    Used for computing semantic entropy and analyzing model uncertainty.
+    """
+    model.eval()
+    dataloader = DataLoader(
+        dataset,
+        batch_size=batch_size,
+        num_workers=num_proc,
+        pin_memory=(num_proc > 1),
+        shuffle=False,
+    )
+
+    model_outputs: dict[str, list[str]] = defaultdict(list)
+
+    device = next(model.parameters()).device
+
+    with tqdm(
+        enumerate(dataloader),
+        total=len(dataloader),
+        desc="Generating predictions",
+    ) as pbar:
+        for i, batch in pbar:
+            input_ids = batch["input_ids"].to(device)
+            attention_mask = batch["attention_mask"].to(device)
+            actual_batch_size, input_length = input_ids.size()
+
+            outputs = {}
+            start_time = time.time()
+            if generate_most_likely:
+                outputs["low_temperature"] = model.generate(
+                    inputs=input_ids,
+                    attention_mask=attention_mask,
+                    generation_config=generation_config,
+                    temperature=low_temperature,
+                    num_return_sequences=1,
+                )
+
+            outputs["high_temperature"] = model.generate(
+                inputs=input_ids,
+                attention_mask=attention_mask,
+                generation_config=generation_config,
+                temperature=high_temperature,
+                num_return_sequences=num_generations - 1,
+            )
+            duration = time.time() - start_time
+
+            for temperature, output in outputs.items():
+                if isinstance(output, GenerateDecoderOnlyOutput):
+                    assert (
+                        activation_storage is not None
+                    ), "activation_storage must be provided for GenerateDecoderOnlyOutput"
+                    generated_ids = output.sequences.cpu()
+                    num_samples = num_generations - 1 if temperature == "high_temperature" else 1
+
+                    token_masks = get_token_masks(generated_ids, tokenizer)
+                    activation_storage.update(
+                        model=model,
+                        outputs=output,
+                        attention_mask=attention_mask,
+                        special_token_mask=token_masks["special_token_mask"],
+                        decoder_added_token_mask=token_masks["decoder_added_token_mask"],
+                        input_length=input_length,
+                        batch_idx=i,
+                        num_samples=num_samples,
+                        batch_size=actual_batch_size,
+                        temperature=temperature,
+                    )
+                elif isinstance(output, Tensor):
+                    generated_ids = output.cpu()
+                else:
+                    raise ValueError(f"Unexpected generation output: {type(output)}")
+
+                # Decode and reshape to match the expected format
+                decoded = tokenizer.batch_decode(
+                    generated_ids[:, input_length:],
+                    skip_special_tokens=True,
+                )
+                decoded = (
+                    np.array(decoded).reshape(actual_batch_size, num_samples).squeeze().tolist()
+                )
+                model_outputs[temperature].extend(decoded)
 
             stats = {
                 "input_size": input_length,

@@ -5,6 +5,7 @@ local_dataset_path: data/datasets/common_claim/dataset.csv
 test_split_name: ""
 max_answer_tokens: 1
 target_column_name: label
+question_column_name: question
 
 # label_mode: binary
 # !!!: Instead choosing here load the label_mode from the prompt config

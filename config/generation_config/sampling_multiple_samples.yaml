@@ -1,0 +1,17 @@
+generate_most_likely: true
+num_generations: 10
+low_temperature: 0.1
+high_temperature: 1.0
+
+max_new_tokens: ${dataset.max_answer_tokens}
+do_sample: true             # Enable sampling
+# TODO: add temperature schedule
+# temperature: ${high_temperature} # Set temperature to 0 for deterministic, confident output
+min_new_tokens: 1           # Ensure that the model outputs at least one token
+
+# Allows to retrieve activations etc.
+return_dict_in_generate: true
+output_attentions: false
+output_hidden_states: true
+output_scores: true
+renormalize_logits: true

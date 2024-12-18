@@ -4,5 +4,6 @@ subset: all
 test_split_name: test
 max_answer_tokens: 1
 target_column_name: answer
+question_column_name: question
 shuffle: true
 subsample_ratio: 0.2

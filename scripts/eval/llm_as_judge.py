@@ -2,6 +2,7 @@ import asyncio
 import json
 import logging
 import os
+import time
 from pprint import pformat
 from typing import Any
 
@@ -17,7 +18,7 @@ from hallucinations.datasets.factory import get_dataset
 from hallucinations.utils import resolve_config, save_json, save_yaml
 
 load_dotenv()
-BATCH_SIZE = int(os.environ.get("BATCH_SIZE", 64))
+BATCH_SIZE = int(os.environ.get("BATCH_SIZE", 8))
 OPENAI_API_BASE_URL = os.getenv("OPENAI_API_BASE_URL", None)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "api_key_missing")
 
@@ -37,9 +38,9 @@ def main(cfg: DictConfig) -> None:
 
     answers = [
         {
-            "question": ds_item["question"],
-            "prediction": ans_item["prediction"],
-            "gold": ans_item["gold"],
+            "question": ds_item[config.dataset.question_column_name],
+            "prediction": ans_item[config.answer_column_name],
+            "gold": ds_item[config.dataset.target_column_name],
         }
         for ds_item, ans_item in zip(dataset, answers, strict=True)
     ]
@@ -68,20 +69,31 @@ class LlmJudgeEvaluator:
 
         return results
 
-    async def eval_single_answer(self, pred: dict[str, Any]) -> str:
+    async def eval_single_answer(self, pred: dict[str, Any]) -> str:  # type: ignore
         prompt_str = self.config.prompt.format(
             pred["question"],
             pred["prediction"],
             pred["gold"],
         )
-        completion = await self.client.chat.completions.create(
-            model=self.config.llm_name,
-            messages=[
-                {"role": "system", "content": self.config.prompt.system_prompt},
-                {"role": "user", "content": prompt_str},
-            ],
-        )
-        return completion.choices[0].message.content or "<no_response>"
+        retry_attempts = 5
+        for attempt in range(retry_attempts):
+            try:
+                completion = await self.client.chat.completions.create(
+                    model=self.config.llm_name,
+                    messages=[
+                        {"role": "system", "content": self.config.prompt.system_prompt},
+                        {"role": "user", "content": prompt_str},
+                    ],
+                )
+                return completion.choices[0].message.content or "<no_response>"
+            except (openai.RateLimitError, openai.APITimeoutError) as e:
+                if attempt < retry_attempts - 1:
+                    wait_time = 2 ** (attempt + 2)  # Exponential backoff
+                    logger.warning(f"Rate limit exceeded. Retrying in {wait_time} seconds...")
+                    time.sleep(wait_time)
+                else:
+                    logger.error("Max retry attempts reached. Exiting.")
+                    raise e
 
 
 if __name__ == "__main__":

@@ -104,6 +104,10 @@ stages:
   generate_trajectories:
     matrix:
       config:
+        - llm: llama_3_8b
+          dataset: common_claim
+          lens: tuned
+          prompt: cc/binary_pretrained
         - llm: llama_3_8b_instruct
           dataset: common_claim
           lens: tuned
@@ -112,14 +116,14 @@ stages:
           dataset: common_claim
           lens: tuned
           prompt: cc/binary_pretrained
-        - llm: llama_3_8b
-          dataset: common_claim
-          lens: tuned
-          prompt: cc/binary_pretrained
         - llm: llama_3_8b_instruct
           dataset: common_claim
           lens: tuned
           prompt: cc/binary_cot
+        - llm: llama_3_8b
+          dataset: mmlu
+          lens: tuned
+          prompt: mmlu/pretrained
         - llm: llama_3_8b_instruct
           dataset: mmlu
           lens: tuned
@@ -128,10 +132,6 @@ stages:
           dataset: mmlu
           lens: tuned
           prompt: mmlu/simple
-        - llm: llama_3_8b
-          dataset: mmlu
-          lens: tuned
-          prompt: mmlu/pretrained
         - llm: llama_3_8b_instruct
           dataset: mmlu
           lens: tuned
@@ -140,10 +140,6 @@ stages:
           dataset: mmlu
           lens: tuned
           prompt: mmlu/cot
-        - llm: llama_3_8b
-          dataset: mmlu
-          lens: tuned
-          prompt: mmlu/pretrained
       seed:
         - 42
     cmd: >-
@@ -166,3 +162,71 @@ stages:
       - data/trajectories/${item.config.dataset}/${item.config.llm}/${item.config.lens}/${item.config.prompt}/seed_${item.seed}/answers.jsonl
       - data/trajectories/${item.config.dataset}/${item.config.llm}/${item.config.lens}/${item.config.prompt}/seed_${item.seed}/stats.jsonl
       - data/trajectories/${item.config.dataset}/${item.config.llm}/${item.config.lens}/${item.config.prompt}/seed_${item.seed}/config.yaml
+
+  generate_activations_multiple_samples:
+    matrix: &multiple_samples_activation_matrix
+      config:
+        - llm: llama_3.1_8b_instruct
+          dataset: nq_open
+          prompt: qa/short_few_shot_sep
+          batch_size: 8
+      seed:
+        - 42
+      generation_config:
+        - sampling_multiple_samples
+
+    cmd: >-
+      PYTHONPATH=. python scripts/dataset/generate_activations.py
+      dataset=${item.config.dataset}
+      llm=${item.config.llm}
+      generation_config=${item.generation_config}
+      prompt=${item.config.prompt}
+      multiple_samples=true
+      batch_size=${item.config.batch_size}
+      results_dir=/data/hallucinations/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}
+      random_seed=${item.seed}
+    deps:
+      - scripts/dataset/generate_activations.py
+      - config/llm/${item.config.llm}.yaml
+      - config/generation_config/${item.generation_config}.yaml
+      - config/dataset/${item.config.dataset}.yaml
+      - config/generate_activations.yaml
+      - config/prompt/${item.config.prompt}.yaml
+    outs:
+      - /data/hallucinations/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/answers.json:
+          cache: false
+      - /data/hallucinations/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/config.yaml:
+          cache: false
+      - /data/hallucinations/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/activations:
+          cache: false
+
+  compute_semantic_entropy:
+    matrix: *multiple_samples_activation_matrix
+    cmd: >-
+      PYTHONPATH=. python scripts/eval/compute_semantic_entropy.py
+      --results-dir=/data/hallucinations/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}
+    deps:
+      - scripts/eval/compute_semantic_entropy.py
+      - /data/hallucinations/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/answers.json
+      - /data/hallucinations/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/activations
+    outs:
+      - /data/hallucinations/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/entropy_metrics.json:
+          cache: false
+
+  eval_answers_llm_as_judge_multiple_samples:
+    matrix: *multiple_samples_activation_matrix
+    cmd: >-
+      PYTHONPATH=. python scripts/eval/llm_as_judge.py
+      answers_file=/data/hallucinations/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/answers.json
+      answer_column_name=low_temperature
+      prompt=llm_as_judge/qa_eval
+    deps:
+      - scripts/eval/llm_as_judge.py
+      - /data/hallucinations/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/answers.json
+      - config/llm_as_judge.yaml
+      - config/prompt/llm_as_judge/qa_eval.yaml
+    outs:
+      - /data/hallucinations/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/llm_judge.json:
+          cache: false
+      - /data/hallucinations/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/llm_judge_config.yaml:
+          cache: false

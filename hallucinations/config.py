@@ -24,6 +24,7 @@ class DatasetConfig(BaseModel, extra="forbid"):
     test_split_name: str
     max_answer_tokens: int
     target_column_name: str
+    question_column_name: str
 
 
 class CsvDatasetConfig(DatasetConfig):
@@ -71,6 +72,7 @@ class GenerateActivationsConfig(BaseModel, extra="forbid"):
     generation_config: dict[str, Any]
     results_dir: Path
     random_seed: int
+    multiple_samples: bool
 
     @model_validator(mode="before")
     @classmethod
@@ -126,6 +128,7 @@ class LllmJudgeConfig(BaseModel, extra="forbid"):
     llm_name: str
     prompt: LlmJudgePromptConfig
     answers_file: Path
+    answer_column_name: str
 
     @property
     def dataset(self) -> QaDatasetConfig:

@@ -2,5 +2,6 @@ defaults:
   - prompt: ???
   - _self_
 
-llm_name: mistralai/Mistral-Nemo-Instruct-2407
+llm_name: llama3.1
+answer_column_name: prediction
 answers_file: ???
