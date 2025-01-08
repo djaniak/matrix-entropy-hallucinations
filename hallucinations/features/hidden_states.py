@@ -13,6 +13,7 @@ class Features:
     layer: Literal["all", "last"] | int
     hs_last_input_token: bool
     hs_last_generated_token: bool
+    hs_all_tokens: bool = False
 
 
 def load_hidden_state_features_from_shards(
@@ -80,6 +81,9 @@ def select_features_from_single_layer(
         gen_hs_layer = layer_hidden_states[:, input_length:]
         gen_token_mask = token_mask[:, input_length:]
         feats["hs_last_generated_token"] = _get_last_masked_token(gen_hs_layer, gen_token_mask)
+    if features.hs_all_tokens:
+        feats["hs_all_tokens"] = layer_hidden_states
+
     return feats
 
 

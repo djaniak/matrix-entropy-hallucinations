@@ -11,7 +11,7 @@ class DatasetFormatter:
         raise NotImplementedError
 
 
-class NqOpenFormatter(DatasetFormatter):
+class QaFormatter(DatasetFormatter):
     def __init__(self, prompt: QaPromptConfig, use_output: bool):
         self.prompt: QaPromptConfig = prompt
         assert self.prompt.context_key is None

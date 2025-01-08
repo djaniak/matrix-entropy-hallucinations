@@ -6,3 +6,4 @@ compile: true
 torch_dtype: bfloat16
 attn_implementation: eager
 quantization: null
+untrained: false

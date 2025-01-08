@@ -16,6 +16,7 @@ class LlmConfig(BaseModel, extra="forbid"):
     torch_dtype: str
     attn_implementation: str
     quantization: dict[str, Any] | None = None
+    untrained: bool = False
 
 
 class DatasetConfig(BaseModel, extra="forbid"):
@@ -33,6 +34,14 @@ class CsvDatasetConfig(DatasetConfig):
 
 
 class QaDatasetConfig(DatasetConfig, extra="forbid"):
+    pass
+
+
+class SquadDatasetConfig(QaDatasetConfig):
+    test_split_ratio: float
+
+
+class TriviaQaDatasetConfig(SquadDatasetConfig):
     pass
 
 

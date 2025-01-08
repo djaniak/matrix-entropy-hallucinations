@@ -1,0 +1,17 @@
+# Slightly modified short prompt from SEP method (https://arxiv.org/abs/2406.15927) with examples from TriviaQA dataset
+content: |
+  Answer the following question as briefly as possible.
+  Question: What do the interior angles of a hexagon add up to in degrees?
+  Answer: 720
+  Question: In which game is a cannon a scoring shot?
+  Answer: billiards
+  Question: Of which tribe of Red Indians was Geronimo a chief
+  Answer: apache
+  Question: What city has the busiest airport system?
+  Answer: london
+  Question: Rhinitis is inflammation of the mucus membranes of what?
+  Answer: nose
+  Question: {question}
+  Answer:
+question_key: question
+context_key: null

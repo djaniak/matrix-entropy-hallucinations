@@ -1,0 +1,7 @@
+name: squad_v2
+cls_path: hallucinations.config.SquadDatasetConfig
+test_split_name: validation
+max_answer_tokens: 50 # llama-3.1 tokenizer (without special tokens): {'max': 24, 'mean': 4.63083385334687, 'median': 4, 'min': 2}
+target_column_name: answers
+question_column_name: question
+test_split_ratio: 0.7

@@ -9,9 +9,11 @@ from hallucinations.config import (
     PromptConfig,
     QaDatasetConfig,
     QaPromptConfig,
+    SquadDatasetConfig,
+    TriviaQaDatasetConfig,
 )
 from hallucinations.datasets.cc import load_custom_claim_dataset, prepare_common_claim_labels
-from hallucinations.datasets.formatter import CommonClaimFormatter, MMLUFormatter, NqOpenFormatter
+from hallucinations.datasets.formatter import CommonClaimFormatter, MMLUFormatter, QaFormatter
 
 
 def prepare_dataset(
@@ -27,7 +29,7 @@ def prepare_dataset(
     if dataset_config.name == "google-research-datasets/nq_open":
         assert isinstance(prompt_config, QaPromptConfig)
         formatted_ds = dataset.map(
-            function=NqOpenFormatter(prompt=prompt_config, use_output=use_output),
+            function=QaFormatter(prompt=prompt_config, use_output=use_output),
             batched=False,
             desc="Formatting dataset",
         )
@@ -56,6 +58,34 @@ def prepare_dataset(
             desc="Formatting dataset",
         )
 
+    elif dataset_config.name == "TimoImhof/TriviaQA-in-SQuAD-format":
+        assert isinstance(prompt_config, QaPromptConfig)
+        assert isinstance(dataset_config, TriviaQaDatasetConfig)
+        # Fix answers format
+        dataset = dataset.map(lambda x: {"answers": x["answers"]["text"]})
+        # Split dataset to obtain similar number of examples as in NQ-Open
+        dataset = dataset.train_test_split(test_size=dataset_config.test_split_ratio)["test"]
+        formatted_ds = dataset.map(
+            function=QaFormatter(prompt=prompt_config, use_output=use_output),
+            batched=False,
+            desc="Formatting dataset",
+        )
+
+    elif dataset_config.name == "squad_v2":
+        assert isinstance(prompt_config, QaPromptConfig)
+        assert isinstance(dataset_config, SquadDatasetConfig)
+        # Fix answers format
+        dataset = dataset.map(lambda x: {"answers": x["answers"]["text"]})
+        # Filter out examples without answers
+        dataset = dataset.filter(lambda x: len(x["answers"]) > 0)
+        # Split dataset to obtain similar number of examples as in NQ-Open
+        dataset = dataset.train_test_split(test_size=dataset_config.test_split_ratio)["test"]
+        formatted_ds = dataset.map(
+            function=QaFormatter(prompt=prompt_config, use_output=use_output),
+            batched=False,
+            desc="Formatting dataset",
+        )
+
     if return_raw:
         return dataset, formatted_ds
     else:
@@ -65,6 +95,12 @@ def prepare_dataset(
 def get_dataset(config: DatasetConfig, split: str | None) -> Dataset | DatasetDict:
     if config.name == "google-research-datasets/nq_open":
         assert isinstance(config, QaDatasetConfig)
+        return load_dataset(config.name, split=split)
+    elif config.name == "TimoImhof/TriviaQA-in-SQuAD-format":
+        assert isinstance(config, TriviaQaDatasetConfig)
+        return load_dataset(config.name, split=split)
+    elif config.name == "squad_v2":
+        assert isinstance(config, SquadDatasetConfig)
         return load_dataset(config.name, split=split)
     elif config.name == "custom/common_claim":
         assert isinstance(config, CsvDatasetConfig)

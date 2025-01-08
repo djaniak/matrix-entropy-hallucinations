@@ -27,7 +27,7 @@ def main(
         "all": [sq | rg for sq, rg in zip(squad_results["all"], rouge_results["all"])],  # type: ignore
     }
 
-    save_json(answers_file.with_name("metrics.json"), results)
+    save_json(answers_file.with_name("qa_metrics.json"), results)
 
 
 if __name__ == "__main__":

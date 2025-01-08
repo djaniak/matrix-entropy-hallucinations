@@ -1,37 +1,62 @@
 stages:
   generate_activations:
-    matrix:
+    matrix: &activation_matrix
       config:
+        # FEW-SHOT
+        ## NQ_OPEN
         - llm: llama_3.1_8b_instruct
           dataset: nq_open
           prompt: qa/short_few_shot_sep
           batch_size: 64
-        - llm: llama_3_8b_instruct
-          dataset: common_claim
-          prompt: cc/binary
+        - llm: mistral_0.3_7b_instruct
+          dataset: nq_open
+          prompt: qa/short_few_shot_sep
           batch_size: 64
-        - llm: llama_3_8b_instruct
-          dataset: common_claim
-          prompt: cc/binary_pretrained
+        - llm: phi_3.5_mini_instruct
+          dataset: nq_open
+          prompt: qa/short_few_shot_sep
           batch_size: 64
-        - llm: llama_3_8b_instruct
-          dataset: common_claim
-          prompt: cc/binary_cot
-          batch_size: 64
-        - llm: llama_3_8b
-          dataset: common_claim
-          prompt: cc/binary
-          batch_size: 64
-        - llm: llama_3_8b
-          dataset: common_claim
-          prompt: cc/binary_pretrained
-          batch_size: 64
+        ## TRIVIA_QA
+        - llm: llama_3.1_8b_instruct
+          dataset: trivia_qa
+          prompt: qa/short_few_shot_sep
+          batch_size: 32
+        - llm: mistral_0.3_7b_instruct
+          dataset: trivia_qa
+          prompt: qa/short_few_shot_sep
+          batch_size: 32
+        - llm: phi_3.5_mini_instruct
+          dataset: trivia_qa
+          prompt: qa/short_few_shot_sep
+          batch_size: 32
+        - llm: llama_3.1_8b_instruct
+          dataset: trivia_qa
+          prompt: qa/short_few_shot_trivia
+          batch_size: 32
+      ## SQUAD
+        - llm: llama_3.1_8b_instruct
+          dataset: squad
+          prompt: qa/short_few_shot_sep
+          batch_size: 32
+        - llm: mistral_0.3_7b_instruct
+          dataset: squad
+          prompt: qa/short_few_shot_sep
+          batch_size: 32
+        - llm: phi_3.5_mini_instruct
+          dataset: squad
+          prompt: qa/short_few_shot_sep
+          batch_size: 32
+      # ZERO-SHOT
+      ## TRIVIA_QA
+        - llm: llama_3.1_8b_instruct
+          dataset: trivia_qa
+          prompt: qa/short_zero_shot
+          batch_size: 32
       seed:
         - 42
       generation_config:
         - sampling_low_temp_with_activations
         - sampling_high_temp_with_activations
-
     cmd: >-
       PYTHONPATH=. python scripts/dataset/generate_activations.py
       dataset=${item.config.dataset}
@@ -53,18 +78,36 @@ stages:
       - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/config.yaml
       - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/activations
 
-  eval_answers:
+  generate_activations_untrained_model:
     matrix:
-      config:
-        - llm: llama_3.1_8b_instruct
-          dataset: nq_open
-          prompt: qa/short_few_shot_sep
-          batch_size: 64
-      seed:
-        - 42
-      generation_config:
-        - sampling_low_temp_with_activations
-        - sampling_high_temp_with_activations
+      <<: *activation_matrix
+    cmd: >-
+      PYTHONPATH=. python scripts/dataset/generate_activations.py
+      dataset=${item.config.dataset}
+      llm=${item.config.llm}
+      llm.untrained=true
+      generation_config=${item.generation_config}
+      prompt=${item.config.prompt}
+      batch_size=${item.config.batch_size}
+      results_dir=/data/hallucinations/activations_untrained/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}
+      random_seed=${item.seed}
+    deps:
+      - scripts/dataset/generate_activations.py
+      - config/llm/${item.config.llm}.yaml
+      - config/generation_config/${item.generation_config}.yaml
+      - config/dataset/${item.config.dataset}.yaml
+      - config/generate_activations.yaml
+      - config/prompt/${item.config.prompt}.yaml
+    outs:
+      - /data/hallucinations/activations_untrained/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/answers.json:
+          cache: false
+      - /data/hallucinations/activations_untrained/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/config.yaml:
+          cache: false
+      - /data/hallucinations/activations_untrained/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/activations:
+          cache: false
+
+  eval_answers:
+    matrix: *activation_matrix
     cmd: >-
       PYTHONPATH=. python scripts/eval/compute_qa_metrics.py
       --answers-file=data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/answers.json
@@ -72,7 +115,7 @@ stages:
       - scripts/eval/compute_qa_metrics.py
       - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/answers.json
     outs:
-      - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/metrics.json
+      - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/qa_metrics.json
 
   eval_answers_llm_as_judge:
     matrix:
@@ -170,6 +213,18 @@ stages:
           dataset: nq_open
           prompt: qa/short_few_shot_sep
           batch_size: 8
+        - llm: llama_3.1_8b_instruct
+          dataset: trivia_qa
+          prompt: qa/short_few_shot_sep
+          batch_size: 4
+        - llm: mistral_0.3_7b_instruct
+          dataset: trivia_qa
+          prompt: qa/short_few_shot_sep
+          batch_size: 4
+        - llm: llama_3.1_8b_instruct
+          dataset: squad
+          prompt: qa/short_few_shot_sep
+          batch_size: 4
       seed:
         - 42
       generation_config:
@@ -230,3 +285,89 @@ stages:
           cache: false
       - /data/hallucinations/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/llm_judge_config.yaml:
           cache: false
+
+  # compute_eranks:
+  #   matrix:
+  #     <<: *activation_matrix
+  #   cmd: >-
+  #     PYTHONPATH=. python scripts/eval/compute_diff_erank.py
+  #     --results-dir=data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}
+  #     --results-dir-untrained=/data/hallucinations/activations_untrained/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}
+  #     --diff-erank-output-path=data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/diff_erank.pt
+  #     --erank-output-path=data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/erank.pt
+  #     --use_token_mask
+  #   deps:
+  #     - scripts/eval/compute_diff_erank.py
+  #     - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/activations
+  #     - /data/hallucinations/activations_untrained/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/activations
+  #   outs:
+  #     - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/diff_erank.pt
+  #     - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/erank.pt
+
+  compute_diff_metrics:
+    matrix:
+      <<: *activation_matrix
+      metric:
+        - erank
+    cmd: >-
+      PYTHONPATH=. python scripts/eval/compute_diff_metric.py
+      --results-dir=data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}
+      --results-dir-untrained=/data/hallucinations/activations_untrained/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}
+      --metric=${item.metric}
+      --diff-metric-output-path=data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/diff_${item.metric}.pt
+      --metric-output-path=data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/${item.metric}.pt
+      --use_token_mask
+    deps:
+      - scripts/eval/compute_diff_metric.py
+      - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/activations
+      - /data/hallucinations/activations_untrained/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/activations
+    outs:
+      - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/diff_${item.metric}.pt
+      - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/${item.metric}.pt
+
+  # compute_diff_metrics_pretrain:
+  #   matrix:
+  #     config:
+  #       - llm_instruct: llama_3.1_8b_instruct
+  #         llm_pretrain: llama_3.1_8b
+  #         dataset: nq_open
+  #         prompt: qa/short_few_shot_sep
+  #     metric:
+  #       - erank
+  #     seed:
+  #       - 42
+  #     generation_config:
+  #       - sampling_low_temp_with_activations
+  #       - sampling_high_temp_with_activations
+  #     batch_size:
+  #       - 64
+  #   cmd: >-
+  #     PYTHONPATH=. python scripts/eval/compute_diff_metric.py
+  #     --results-dir=data/activations/${item.config.dataset}/${item.config.llm_instruct}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}
+  #     --results-dir-untrained=data/activations/${item.config.dataset}/${item.config.llm_pretrain}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}
+  #     --metric=${item.metric}
+  #     --diff-metric-output-path=data/activations/${item.config.dataset}/${item.config.llm_instruct}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/diff_${item.metric}_pretrain.pt
+  #     --use_token_mask
+  #   deps:
+  #     - scripts/eval/compute_diff_metric.py
+  #     - data/activations/${item.config.dataset}/${item.config.llm_instruct}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/activations
+  #     - data/activations/${item.config.dataset}/${item.config.llm_pretrain}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/activations
+  #   outs:
+  #     - data/activations/${item.config.dataset}/${item.config.llm_instruct}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/diff_${item.metric}_pretrain.pt
+
+  compute_metrics:
+    matrix:
+      <<: *activation_matrix
+      metric:
+        - logdet
+    cmd: >-
+      PYTHONPATH=. python scripts/eval/compute_metric.py
+      --results-dir=data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}
+      --output-path=data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/${item.metric}.pt
+      --metric=${item.metric}
+      --use_token_mask
+    deps:
+      - scripts/eval/compute_metric.py
+      - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/activations
+    outs:
+      - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/${item.metric}.pt
