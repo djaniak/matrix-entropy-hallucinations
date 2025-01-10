@@ -117,16 +117,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_low_temp_with_activations.yaml
       hash: md5
-      md5: 4d0821ece2f22d6fc13224add2cd4908
-      size: 588
+      md5: 5e16e30aedda4ab5065cb76bb4b34951
+      size: 633
     - path: config/llm/llama_3.1_8b_instruct.yaml
       hash: md5
       md5: 1145cafee3a098683961c71fb9e9dd04
       size: 219
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -165,16 +165,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_high_temp_with_activations.yaml
       hash: md5
-      md5: 48b1600135afbe0c4ca3c416942c8c7c
-      size: 217
+      md5: a404f49fcf2dc104b3f5d4157a3c1db8
+      size: 262
     - path: config/llm/llama_3.1_8b_instruct.yaml
       hash: md5
       md5: 1145cafee3a098683961c71fb9e9dd04
       size: 219
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -213,16 +213,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_low_temp_with_activations.yaml
       hash: md5
-      md5: 4d0821ece2f22d6fc13224add2cd4908
-      size: 588
+      md5: 5e16e30aedda4ab5065cb76bb4b34951
+      size: 633
     - path: config/llm/phi_3.5_mini_instruct.yaml
       hash: md5
       md5: 6d3eb9b652e691e216d99236c10313ca
       size: 213
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -261,16 +261,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_low_temp_with_activations.yaml
       hash: md5
-      md5: 4d0821ece2f22d6fc13224add2cd4908
-      size: 588
+      md5: 5e16e30aedda4ab5065cb76bb4b34951
+      size: 633
     - path: config/llm/mistral_0.3_7b_instruct.yaml
       hash: md5
       md5: 85ac7eff8408840edbda7c0af192c5b3
       size: 215
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -309,16 +309,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_low_temp_with_activations.yaml
       hash: md5
-      md5: 4d0821ece2f22d6fc13224add2cd4908
-      size: 588
+      md5: 5e16e30aedda4ab5065cb76bb4b34951
+      size: 633
     - path: config/llm/llama_3.1_8b_instruct.yaml
       hash: md5
       md5: 1145cafee3a098683961c71fb9e9dd04
       size: 219
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -357,16 +357,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_high_temp_with_activations.yaml
       hash: md5
-      md5: 48b1600135afbe0c4ca3c416942c8c7c
-      size: 217
+      md5: a404f49fcf2dc104b3f5d4157a3c1db8
+      size: 262
     - path: config/llm/llama_3.1_8b_instruct.yaml
       hash: md5
       md5: 1145cafee3a098683961c71fb9e9dd04
       size: 219
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -405,16 +405,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_low_temp_with_activations.yaml
       hash: md5
-      md5: 4d0821ece2f22d6fc13224add2cd4908
-      size: 588
+      md5: 5e16e30aedda4ab5065cb76bb4b34951
+      size: 633
     - path: config/llm/mistral_0.3_7b_instruct.yaml
       hash: md5
       md5: 85ac7eff8408840edbda7c0af192c5b3
       size: 215
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -453,16 +453,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_high_temp_with_activations.yaml
       hash: md5
-      md5: 48b1600135afbe0c4ca3c416942c8c7c
-      size: 217
+      md5: a404f49fcf2dc104b3f5d4157a3c1db8
+      size: 262
     - path: config/llm/mistral_0.3_7b_instruct.yaml
       hash: md5
       md5: 85ac7eff8408840edbda7c0af192c5b3
       size: 215
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -501,16 +501,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_high_temp_with_activations.yaml
       hash: md5
-      md5: 48b1600135afbe0c4ca3c416942c8c7c
-      size: 217
+      md5: a404f49fcf2dc104b3f5d4157a3c1db8
+      size: 262
     - path: config/llm/phi_3.5_mini_instruct.yaml
       hash: md5
       md5: 6d3eb9b652e691e216d99236c10313ca
       size: 213
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -1071,16 +1071,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_high_temp_with_activations.yaml
       hash: md5
-      md5: 48b1600135afbe0c4ca3c416942c8c7c
-      size: 217
+      md5: a404f49fcf2dc104b3f5d4157a3c1db8
+      size: 262
     - path: config/llm/mistral_0.3_7b_instruct.yaml
       hash: md5
       md5: 85ac7eff8408840edbda7c0af192c5b3
       size: 215
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -7497,16 +7497,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_low_temp_with_activations.yaml
       hash: md5
-      md5: 4d0821ece2f22d6fc13224add2cd4908
-      size: 588
+      md5: 5e16e30aedda4ab5065cb76bb4b34951
+      size: 633
     - path: config/llm/phi_3.5_mini_instruct.yaml
       hash: md5
       md5: 6d3eb9b652e691e216d99236c10313ca
       size: 213
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -7545,16 +7545,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_high_temp_with_activations.yaml
       hash: md5
-      md5: 48b1600135afbe0c4ca3c416942c8c7c
-      size: 217
+      md5: a404f49fcf2dc104b3f5d4157a3c1db8
+      size: 262
     - path: config/llm/llama_3.1_8b_instruct.yaml
       hash: md5
       md5: 1145cafee3a098683961c71fb9e9dd04
       size: 219
     - path: config/prompt/qa/short_few_shot_trivia.yaml
       hash: md5
-      md5: 99e7561185726e31f675d480843ea375
-      size: 659
+      md5: f21505c91dea1d842ba8c685bac07d3d
+      size: 710
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -7593,16 +7593,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_high_temp_with_activations.yaml
       hash: md5
-      md5: 48b1600135afbe0c4ca3c416942c8c7c
-      size: 217
+      md5: a404f49fcf2dc104b3f5d4157a3c1db8
+      size: 262
     - path: config/llm/llama_3.1_8b_instruct.yaml
       hash: md5
       md5: 1145cafee3a098683961c71fb9e9dd04
       size: 219
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -7641,16 +7641,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_low_temp_with_activations.yaml
       hash: md5
-      md5: 4d0821ece2f22d6fc13224add2cd4908
-      size: 588
+      md5: 5e16e30aedda4ab5065cb76bb4b34951
+      size: 633
     - path: config/llm/llama_3.1_8b_instruct.yaml
       hash: md5
       md5: 1145cafee3a098683961c71fb9e9dd04
       size: 219
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -7689,16 +7689,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_high_temp_with_activations.yaml
       hash: md5
-      md5: 48b1600135afbe0c4ca3c416942c8c7c
-      size: 217
+      md5: a404f49fcf2dc104b3f5d4157a3c1db8
+      size: 262
     - path: config/llm/phi_3.5_mini_instruct.yaml
       hash: md5
       md5: 6d3eb9b652e691e216d99236c10313ca
       size: 213
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -7737,16 +7737,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_low_temp_with_activations.yaml
       hash: md5
-      md5: 4d0821ece2f22d6fc13224add2cd4908
-      size: 588
+      md5: 5e16e30aedda4ab5065cb76bb4b34951
+      size: 633
     - path: config/llm/llama_3.1_8b_instruct.yaml
       hash: md5
       md5: 1145cafee3a098683961c71fb9e9dd04
       size: 219
     - path: config/prompt/qa/short_few_shot_trivia.yaml
       hash: md5
-      md5: 99e7561185726e31f675d480843ea375
-      size: 659
+      md5: f21505c91dea1d842ba8c685bac07d3d
+      size: 710
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -8494,16 +8494,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_high_temp_with_activations.yaml
       hash: md5
-      md5: 48b1600135afbe0c4ca3c416942c8c7c
-      size: 217
+      md5: a404f49fcf2dc104b3f5d4157a3c1db8
+      size: 262
     - path: config/llm/mistral_0.3_7b_instruct.yaml
       hash: md5
       md5: 85ac7eff8408840edbda7c0af192c5b3
       size: 215
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -8542,16 +8542,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_low_temp_with_activations.yaml
       hash: md5
-      md5: 4d0821ece2f22d6fc13224add2cd4908
-      size: 588
+      md5: 5e16e30aedda4ab5065cb76bb4b34951
+      size: 633
     - path: config/llm/mistral_0.3_7b_instruct.yaml
       hash: md5
       md5: 85ac7eff8408840edbda7c0af192c5b3
       size: 215
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -8590,16 +8590,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_low_temp_with_activations.yaml
       hash: md5
-      md5: 4d0821ece2f22d6fc13224add2cd4908
-      size: 588
+      md5: 5e16e30aedda4ab5065cb76bb4b34951
+      size: 633
     - path: config/llm/phi_3.5_mini_instruct.yaml
       hash: md5
       md5: 6d3eb9b652e691e216d99236c10313ca
       size: 213
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -8638,16 +8638,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_high_temp_with_activations.yaml
       hash: md5
-      md5: 48b1600135afbe0c4ca3c416942c8c7c
-      size: 217
+      md5: a404f49fcf2dc104b3f5d4157a3c1db8
+      size: 262
     - path: config/llm/phi_3.5_mini_instruct.yaml
       hash: md5
       md5: 6d3eb9b652e691e216d99236c10313ca
       size: 213
     - path: config/prompt/qa/short_few_shot_sep.yaml
       hash: md5
-      md5: ec4cc2bd4ee97bd518839d2211cfe20c
-      size: 597
+      md5: 05fbcde276e7ab45a2843584ca79943d
+      size: 648
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -8686,16 +8686,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_high_temp_with_activations.yaml
       hash: md5
-      md5: 48b1600135afbe0c4ca3c416942c8c7c
-      size: 217
+      md5: a404f49fcf2dc104b3f5d4157a3c1db8
+      size: 262
     - path: config/llm/llama_3.1_8b_instruct.yaml
       hash: md5
       md5: 1145cafee3a098683961c71fb9e9dd04
       size: 219
     - path: config/prompt/qa/short_zero_shot.yaml
       hash: md5
-      md5: 40a144371b6929d2ec37d4b603ceaf01
-      size: 141
+      md5: 3245d06beab14daf78a0fa0a12b03b58
+      size: 193
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -8734,16 +8734,16 @@ stages:
       size: 202
     - path: config/generation_config/sampling_low_temp_with_activations.yaml
       hash: md5
-      md5: 4d0821ece2f22d6fc13224add2cd4908
-      size: 588
+      md5: 5e16e30aedda4ab5065cb76bb4b34951
+      size: 633
     - path: config/llm/llama_3.1_8b_instruct.yaml
       hash: md5
       md5: 1145cafee3a098683961c71fb9e9dd04
       size: 219
     - path: config/prompt/qa/short_zero_shot.yaml
       hash: md5
-      md5: 40a144371b6929d2ec37d4b603ceaf01
-      size: 141
+      md5: 3245d06beab14daf78a0fa0a12b03b58
+      size: 193
     - path: scripts/dataset/generate_activations.py
       hash: md5
       md5: eae383d48944bb2661b591ddb507b9d8
@@ -9465,3 +9465,1271 @@ stages:
       hash: md5
       md5: 4c1976889aef2d184a7c179a63814024
       size: 4012502
+  generate_activations_untrained_model@config9-42-sampling_low_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=squad
+      llm=phi_3.5_mini_instruct llm.untrained=true generation_config=sampling_low_temp_with_activations
+      prompt=qa/short_few_shot_sep batch_size=32 
+      results_dir=/data/hallucinations/activations_untrained/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/squad.yaml
+      hash: md5
+      md5: 9cb52546825b588e2da9b569b6702f51
+      size: 306
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_low_temp_with_activations.yaml
+      hash: md5
+      md5: 4d0821ece2f22d6fc13224add2cd4908
+      size: 588
+    - path: config/llm/phi_3.5_mini_instruct.yaml
+      hash: md5
+      md5: 6d3eb9b652e691e216d99236c10313ca
+      size: 213
+    - path: config/prompt/qa/short_few_shot_sep.yaml
+      hash: md5
+      md5: ec4cc2bd4ee97bd518839d2211cfe20c
+      size: 597
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: eae383d48944bb2661b591ddb507b9d8
+      size: 4549
+    outs:
+    - path: 
+        /data/hallucinations/activations_untrained/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/activations
+      hash: md5
+      md5: c3b0b4138850465751a03d24eb1e6f16.dir
+      size: 332644566532
+      nfiles: 130
+    - path: 
+        /data/hallucinations/activations_untrained/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/answers.json
+      hash: md5
+      md5: f64d83f0f29ca07cbfb7be01a8d83ec3
+      size: 2083329
+    - path: 
+        /data/hallucinations/activations_untrained/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/config.yaml
+      hash: md5
+      md5: ed548ef35c79548aef12e26da387bad9
+      size: 1522
+  generate_activations_untrained_model@config10-42-sampling_low_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=trivia_qa
+      llm=llama_3.1_8b_instruct llm.untrained=true generation_config=sampling_low_temp_with_activations
+      prompt=qa/short_zero_shot batch_size=32 
+      results_dir=/data/hallucinations/activations_untrained/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/trivia_qa.yaml
+      hash: md5
+      md5: 5d0eaf46832fa2b7f5327bc27cbfbb1b
+      size: 336
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_low_temp_with_activations.yaml
+      hash: md5
+      md5: 4d0821ece2f22d6fc13224add2cd4908
+      size: 588
+    - path: config/llm/llama_3.1_8b_instruct.yaml
+      hash: md5
+      md5: 1145cafee3a098683961c71fb9e9dd04
+      size: 219
+    - path: config/prompt/qa/short_zero_shot.yaml
+      hash: md5
+      md5: 40a144371b6929d2ec37d4b603ceaf01
+      size: 141
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: eae383d48944bb2661b591ddb507b9d8
+      size: 4549
+    outs:
+    - path: 
+        /data/hallucinations/activations_untrained/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 993ba7894fa18250ede9e328e4149d1f.dir
+      size: 297452254066
+      nfiles: 121
+    - path: 
+        /data/hallucinations/activations_untrained/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: 7453394154eb38d5f77f59489a039682
+      size: 1879821
+    - path: 
+        /data/hallucinations/activations_untrained/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/config.yaml
+      hash: md5
+      md5: 2e6f5b161c5b19f1cb966d9d336c12a8
+      size: 1173
+  generate_activations_untrained_model@config10-42-sampling_high_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=trivia_qa
+      llm=llama_3.1_8b_instruct llm.untrained=true generation_config=sampling_high_temp_with_activations
+      prompt=qa/short_zero_shot batch_size=32 
+      results_dir=/data/hallucinations/activations_untrained/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/trivia_qa.yaml
+      hash: md5
+      md5: 5d0eaf46832fa2b7f5327bc27cbfbb1b
+      size: 336
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_high_temp_with_activations.yaml
+      hash: md5
+      md5: 48b1600135afbe0c4ca3c416942c8c7c
+      size: 217
+    - path: config/llm/llama_3.1_8b_instruct.yaml
+      hash: md5
+      md5: 1145cafee3a098683961c71fb9e9dd04
+      size: 219
+    - path: config/prompt/qa/short_zero_shot.yaml
+      hash: md5
+      md5: 40a144371b6929d2ec37d4b603ceaf01
+      size: 141
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: eae383d48944bb2661b591ddb507b9d8
+      size: 4549
+    outs:
+    - path: 
+        /data/hallucinations/activations_untrained/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: bbb60ee94fb74ab7e57941868c5716a6.dir
+      size: 297452254066
+      nfiles: 121
+    - path: 
+        /data/hallucinations/activations_untrained/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: 55412465866553d6248ca6873c7fa9e1
+      size: 1884909
+    - path: 
+        /data/hallucinations/activations_untrained/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/config.yaml
+      hash: md5
+      md5: d60c4ab4c3c15510b17c55e8d4066ee7
+      size: 1134
+  generate_activations_untrained_model@config9-42-sampling_high_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=squad
+      llm=phi_3.5_mini_instruct llm.untrained=true generation_config=sampling_high_temp_with_activations
+      prompt=qa/short_few_shot_sep batch_size=32 
+      results_dir=/data/hallucinations/activations_untrained/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/squad.yaml
+      hash: md5
+      md5: 9cb52546825b588e2da9b569b6702f51
+      size: 306
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_high_temp_with_activations.yaml
+      hash: md5
+      md5: 48b1600135afbe0c4ca3c416942c8c7c
+      size: 217
+    - path: config/llm/phi_3.5_mini_instruct.yaml
+      hash: md5
+      md5: 6d3eb9b652e691e216d99236c10313ca
+      size: 213
+    - path: config/prompt/qa/short_few_shot_sep.yaml
+      hash: md5
+      md5: ec4cc2bd4ee97bd518839d2211cfe20c
+      size: 597
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: eae383d48944bb2661b591ddb507b9d8
+      size: 4549
+    outs:
+    - path: 
+        /data/hallucinations/activations_untrained/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/activations
+      hash: md5
+      md5: 44b61a4de1c95955ea96a585636cd67e.dir
+      size: 332644566532
+      nfiles: 130
+    - path: 
+        /data/hallucinations/activations_untrained/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/answers.json
+      hash: md5
+      md5: 617f100ea9f2f5dbec9cc34955783a1b
+      size: 2075815
+    - path: 
+        /data/hallucinations/activations_untrained/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/config.yaml
+      hash: md5
+      md5: cdbd053c52352b607620e4c2d47a17e2
+      size: 1483
+  compute_diff_metrics@config10-42-sampling_low_temp_with_activations-erank:
+    cmd: PYTHONPATH=. python scripts/eval/compute_diff_metric.py 
+      --results-dir=data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --results-dir-untrained=/data/hallucinations/activations_untrained/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --metric=erank 
+      --diff-metric-output-path=data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/diff_erank.pt
+      --metric-output-path=data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/erank.pt
+      --use_token_mask
+    deps:
+    - path: 
+        /data/hallucinations/activations_untrained/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 993ba7894fa18250ede9e328e4149d1f.dir
+      size: 297452254066
+      nfiles: 121
+    - path: 
+        data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: d01aee9984e5d084ceaef17c45cb177e.dir
+      size: 138256982330
+      nfiles: 121
+    - path: scripts/eval/compute_diff_metric.py
+      hash: md5
+      md5: 7681f67a113e9ec833413b4aa542304b
+      size: 2420
+    outs:
+    - path: 
+        data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/diff_erank.pt
+      hash: md5
+      md5: f42c5fb920c7e363927fd289518e19eb
+      size: 508331
+    - path: 
+        data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/erank.pt
+      hash: md5
+      md5: 59a1bb7fdf63e8c29917639c23e835dd
+      size: 508306
+  compute_diff_metrics@config9-42-sampling_high_temp_with_activations-erank:
+    cmd: PYTHONPATH=. python scripts/eval/compute_diff_metric.py 
+      --results-dir=data/activations/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42
+      --results-dir-untrained=/data/hallucinations/activations_untrained/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42
+      --metric=erank 
+      --diff-metric-output-path=data/activations/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/diff_erank.pt
+      --metric-output-path=data/activations/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/erank.pt
+      --use_token_mask
+    deps:
+    - path: 
+        /data/hallucinations/activations_untrained/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/activations
+      hash: md5
+      md5: 44b61a4de1c95955ea96a585636cd67e.dir
+      size: 332644566532
+      nfiles: 130
+    - path: 
+        data/activations/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/activations
+      hash: md5
+      md5: 403001fbae38a65fca362f5ceceec448.dir
+      size: 166192873092
+      nfiles: 130
+    - path: scripts/eval/compute_diff_metric.py
+      hash: md5
+      md5: 7681f67a113e9ec833413b4aa542304b
+      size: 2420
+    outs:
+    - path: 
+        data/activations/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/diff_erank.pt
+      hash: md5
+      md5: 90fbf78410a58b4f10be01ccd0eb1846
+      size: 548971
+    - path: 
+        data/activations/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/erank.pt
+      hash: md5
+      md5: e3d3f592d3b9bb7290a9fca232068482
+      size: 548946
+  compute_diff_metrics@config9-42-sampling_low_temp_with_activations-erank:
+    cmd: PYTHONPATH=. python scripts/eval/compute_diff_metric.py 
+      --results-dir=data/activations/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42
+      --results-dir-untrained=/data/hallucinations/activations_untrained/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42
+      --metric=erank 
+      --diff-metric-output-path=data/activations/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/diff_erank.pt
+      --metric-output-path=data/activations/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/erank.pt
+      --use_token_mask
+    deps:
+    - path: 
+        /data/hallucinations/activations_untrained/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/activations
+      hash: md5
+      md5: c3b0b4138850465751a03d24eb1e6f16.dir
+      size: 332644566532
+      nfiles: 130
+    - path: 
+        data/activations/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/activations
+      hash: md5
+      md5: 79ad5249a8da7cfc549cf9f3f12fd2a7.dir
+      size: 166024175940
+      nfiles: 130
+    - path: scripts/eval/compute_diff_metric.py
+      hash: md5
+      md5: 7681f67a113e9ec833413b4aa542304b
+      size: 2420
+    outs:
+    - path: 
+        data/activations/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/diff_erank.pt
+      hash: md5
+      md5: 5a6301ab50c15a7c45866cdab0ee7bfd
+      size: 548971
+    - path: 
+        data/activations/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/erank.pt
+      hash: md5
+      md5: c032ffb70301ff21b6ce8f3275461469
+      size: 548946
+  compute_diff_metrics@config10-42-sampling_high_temp_with_activations-erank:
+    cmd: PYTHONPATH=. python scripts/eval/compute_diff_metric.py 
+      --results-dir=data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --results-dir-untrained=/data/hallucinations/activations_untrained/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --metric=erank 
+      --diff-metric-output-path=data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/diff_erank.pt
+      --metric-output-path=data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/erank.pt
+      --use_token_mask
+    deps:
+    - path: 
+        /data/hallucinations/activations_untrained/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: bbb60ee94fb74ab7e57941868c5716a6.dir
+      size: 297452254066
+      nfiles: 121
+    - path: 
+        data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 2c8078807c1c566b9984dc1b0cbd20b0.dir
+      size: 142952334010
+      nfiles: 121
+    - path: scripts/eval/compute_diff_metric.py
+      hash: md5
+      md5: 7681f67a113e9ec833413b4aa542304b
+      size: 2420
+    outs:
+    - path: 
+        data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/diff_erank.pt
+      hash: md5
+      md5: 84712dcad9c8a6385161c6ffef776c10
+      size: 508331
+    - path: 
+        data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/erank.pt
+      hash: md5
+      md5: 1623e7abe004380e1a8a4adc6eb9cc0a
+      size: 508306
+  compute_metrics@config9-42-sampling_low_temp_with_activations-logdet:
+    cmd: PYTHONPATH=. python scripts/eval/compute_metric.py 
+      --results-dir=data/activations/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42
+      --output-path=data/activations/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/logdet.pt
+      --metric=logdet --use_token_mask
+    deps:
+    - path: 
+        data/activations/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/activations
+      hash: md5
+      md5: 79ad5249a8da7cfc549cf9f3f12fd2a7.dir
+      size: 166024175940
+      nfiles: 130
+    - path: scripts/eval/compute_metric.py
+      hash: md5
+      md5: d37c71d471f499ec3408c03456085b9e
+      size: 1561
+    outs:
+    - path: 
+        data/activations/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/logdet.pt
+      hash: md5
+      md5: ae7a9846e90196e35a3657456169ba59
+      size: 548951
+  compute_metrics@config10-42-sampling_low_temp_with_activations-logdet:
+    cmd: PYTHONPATH=. python scripts/eval/compute_metric.py 
+      --results-dir=data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --output-path=data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/logdet.pt
+      --metric=logdet --use_token_mask
+    deps:
+    - path: 
+        data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: d01aee9984e5d084ceaef17c45cb177e.dir
+      size: 138256982330
+      nfiles: 121
+    - path: scripts/eval/compute_metric.py
+      hash: md5
+      md5: d37c71d471f499ec3408c03456085b9e
+      size: 1561
+    outs:
+    - path: 
+        data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/logdet.pt
+      hash: md5
+      md5: 84bd267a4ec91853c4c772f2341ee0ce
+      size: 508311
+  compute_metrics@config9-42-sampling_high_temp_with_activations-logdet:
+    cmd: PYTHONPATH=. python scripts/eval/compute_metric.py 
+      --results-dir=data/activations/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42
+      --output-path=data/activations/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/logdet.pt
+      --metric=logdet --use_token_mask
+    deps:
+    - path: 
+        data/activations/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/activations
+      hash: md5
+      md5: 403001fbae38a65fca362f5ceceec448.dir
+      size: 166192873092
+      nfiles: 130
+    - path: scripts/eval/compute_metric.py
+      hash: md5
+      md5: d37c71d471f499ec3408c03456085b9e
+      size: 1561
+    outs:
+    - path: 
+        data/activations/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/logdet.pt
+      hash: md5
+      md5: 38209d2e26a8f48dd35ea120398b5bce
+      size: 548951
+  compute_metrics@config10-42-sampling_high_temp_with_activations-logdet:
+    cmd: PYTHONPATH=. python scripts/eval/compute_metric.py 
+      --results-dir=data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --output-path=data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/logdet.pt
+      --metric=logdet --use_token_mask
+    deps:
+    - path: 
+        data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 2c8078807c1c566b9984dc1b0cbd20b0.dir
+      size: 142952334010
+      nfiles: 121
+    - path: scripts/eval/compute_metric.py
+      hash: md5
+      md5: d37c71d471f499ec3408c03456085b9e
+      size: 1561
+    outs:
+    - path: 
+        data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/logdet.pt
+      hash: md5
+      md5: 26aa3a4640b519c8a712ca6f9cad3a93
+      size: 508311
+  eval_answers@config9-42-sampling_high_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/eval/compute_qa_metrics.py 
+      --answers-file=data/activations/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/answers.json
+    deps:
+    - path: 
+        data/activations/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/answers.json
+      hash: md5
+      md5: 46d9f020b549bcf0f2a8ac3cae4bd76f
+      size: 827545
+    - path: scripts/eval/compute_qa_metrics.py
+      hash: md5
+      md5: d3f61a57e208c230015383296832ec72
+      size: 1114
+    outs:
+    - path: 
+        data/activations/squad/phi_3.5_mini_instruct/sampling_high_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/qa_metrics.json
+      hash: md5
+      md5: 1ea782a0006c3130ab114f8e07814723
+      size: 641638
+  eval_answers@config9-42-sampling_low_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/eval/compute_qa_metrics.py 
+      --answers-file=data/activations/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/answers.json
+    deps:
+    - path: 
+        data/activations/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/answers.json
+      hash: md5
+      md5: d0f461eb4f61d2fdbfeb233a0c7a317a
+      size: 799013
+    - path: scripts/eval/compute_qa_metrics.py
+      hash: md5
+      md5: d3f61a57e208c230015383296832ec72
+      size: 1114
+    outs:
+    - path: 
+        data/activations/squad/phi_3.5_mini_instruct/sampling_low_temp_with_activations__prompt_qa/short_few_shot_sep__seed_42/qa_metrics.json
+      hash: md5
+      md5: aa1cfb5d8d1d550f58a6c97ad0ca3a2d
+      size: 641999
+  eval_answers@config10-42-sampling_high_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/eval/compute_qa_metrics.py 
+      --answers-file=data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+    deps:
+    - path: 
+        data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: ca9b4d375352f8f4bd8a9874f6c1a8a3
+      size: 360476
+    - path: scripts/eval/compute_qa_metrics.py
+      hash: md5
+      md5: d3f61a57e208c230015383296832ec72
+      size: 1114
+    outs:
+    - path: 
+        data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/qa_metrics.json
+      hash: md5
+      md5: 8a843be65012080a185a01f3dfad003d
+      size: 565581
+  eval_answers@config10-42-sampling_low_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/eval/compute_qa_metrics.py 
+      --answers-file=data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+    deps:
+    - path: 
+        data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: 3d09784d1a8cad78f76c31525f3c690d
+      size: 341272
+    - path: scripts/eval/compute_qa_metrics.py
+      hash: md5
+      md5: d3f61a57e208c230015383296832ec72
+      size: 1114
+    outs:
+    - path: 
+        data/activations/trivia_qa/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/qa_metrics.json
+      hash: md5
+      md5: de65043e6dc8fca457e09dec929006dd
+      size: 563120
+  compute_results:
+    cmd: PYTHONPATH=. python scripts/eval/gather_qa_metrics.py --output-dir=data/results;
+      PYTHONPATH=. python scripts/eval/compute_auroc.py --output-dir=data/results
+  generate_activations@config12-42-sampling_high_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=nq_open
+      llm=llama_3.1_8b_instruct generation_config=sampling_high_temp_with_activations
+      prompt=qa/short_zero_shot batch_size=64 
+      results_dir=data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/nq_open.yaml
+      hash: md5
+      md5: 1bb7743590d127466fb80254e25605cf
+      size: 304
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_high_temp_with_activations.yaml
+      hash: md5
+      md5: a404f49fcf2dc104b3f5d4157a3c1db8
+      size: 262
+    - path: config/llm/llama_3.1_8b_instruct.yaml
+      hash: md5
+      md5: 1145cafee3a098683961c71fb9e9dd04
+      size: 219
+    - path: config/prompt/qa/short_zero_shot.yaml
+      hash: md5
+      md5: 3245d06beab14daf78a0fa0a12b03b58
+      size: 193
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: eae383d48944bb2661b591ddb507b9d8
+      size: 4549
+    outs:
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 3be4d794898876a91bd2d59fb1429dd5.dir
+      size: 113928657202
+      nfiles: 57
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: b94b0b87b3dd4415e948cbc0d1671a11
+      size: 620078
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/config.yaml
+      hash: md5
+      md5: e9c067c71149f1d92069e715726ef270
+      size: 1093
+  generate_activations@config12-42-sampling_low_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=nq_open
+      llm=llama_3.1_8b_instruct generation_config=sampling_low_temp_with_activations
+      prompt=qa/short_zero_shot batch_size=64 
+      results_dir=data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/nq_open.yaml
+      hash: md5
+      md5: 1bb7743590d127466fb80254e25605cf
+      size: 304
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_low_temp_with_activations.yaml
+      hash: md5
+      md5: 5e16e30aedda4ab5065cb76bb4b34951
+      size: 633
+    - path: config/llm/llama_3.1_8b_instruct.yaml
+      hash: md5
+      md5: 1145cafee3a098683961c71fb9e9dd04
+      size: 219
+    - path: config/prompt/qa/short_zero_shot.yaml
+      hash: md5
+      md5: 3245d06beab14daf78a0fa0a12b03b58
+      size: 193
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: eae383d48944bb2661b591ddb507b9d8
+      size: 4549
+    outs:
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 591d74e9752b51a743f2b52e91909620.dir
+      size: 113928657202
+      nfiles: 57
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: 94c805883618ca961930d610874bd046
+      size: 598473
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/config.yaml
+      hash: md5
+      md5: 09cf35a226043d924a7c6e64d7848beb
+      size: 1132
+  generate_activations@config11-42-sampling_high_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=trivia_qa
+      llm=mistral_0.3_7b_instruct generation_config=sampling_high_temp_with_activations
+      prompt=qa/short_zero_shot batch_size=32 
+      results_dir=data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/trivia_qa.yaml
+      hash: md5
+      md5: 5d0eaf46832fa2b7f5327bc27cbfbb1b
+      size: 336
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_high_temp_with_activations.yaml
+      hash: md5
+      md5: a404f49fcf2dc104b3f5d4157a3c1db8
+      size: 262
+    - path: config/llm/mistral_0.3_7b_instruct.yaml
+      hash: md5
+      md5: 85ac7eff8408840edbda7c0af192c5b3
+      size: 215
+    - path: config/prompt/qa/short_zero_shot.yaml
+      hash: md5
+      md5: 3245d06beab14daf78a0fa0a12b03b58
+      size: 193
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: eae383d48944bb2661b591ddb507b9d8
+      size: 4549
+    outs:
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: f6a70de722459c70e5bb042ac595a044.dir
+      size: 126758019258
+      nfiles: 121
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: 1ea955eab90ae13146326dff47f562e8
+      size: 580104
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/config.yaml
+      hash: md5
+      md5: 5fa32dc8bac1b099b50c631c5c0abf5d
+      size: 1099
+  generate_activations@config11-42-sampling_low_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=trivia_qa
+      llm=mistral_0.3_7b_instruct generation_config=sampling_low_temp_with_activations
+      prompt=qa/short_zero_shot batch_size=32 
+      results_dir=data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/trivia_qa.yaml
+      hash: md5
+      md5: 5d0eaf46832fa2b7f5327bc27cbfbb1b
+      size: 336
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_low_temp_with_activations.yaml
+      hash: md5
+      md5: 5e16e30aedda4ab5065cb76bb4b34951
+      size: 633
+    - path: config/llm/mistral_0.3_7b_instruct.yaml
+      hash: md5
+      md5: 85ac7eff8408840edbda7c0af192c5b3
+      size: 215
+    - path: config/prompt/qa/short_zero_shot.yaml
+      hash: md5
+      md5: 3245d06beab14daf78a0fa0a12b03b58
+      size: 193
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: eae383d48944bb2661b591ddb507b9d8
+      size: 4549
+    outs:
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 354f92d345c9d30d88d35c7e5eacc5aa.dir
+      size: 126691514362
+      nfiles: 121
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: d31b0698769f747139c7a97e4b7c02bb
+      size: 545969
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/config.yaml
+      hash: md5
+      md5: b99016dba7a218d295425e34451fd96e
+      size: 1138
+  generate_activations_multiple_samples@config4-42-sampling_multiple_samples:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=trivia_qa
+      llm=llama_3.1_8b_instruct generation_config=sampling_multiple_samples prompt=qa/short_zero_shot
+      multiple_samples=true batch_size=4 
+      results_dir=/data/hallucinations/activations/trivia_qa/llama_3.1_8b_instruct/sampling_multiple_samples__prompt_qa/short_zero_shot__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/trivia_qa.yaml
+      hash: md5
+      md5: 5d0eaf46832fa2b7f5327bc27cbfbb1b
+      size: 336
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_multiple_samples.yaml
+      hash: md5
+      md5: 24794b36d7bd0de38a83a746d2ab8d39
+      size: 554
+    - path: config/llm/llama_3.1_8b_instruct.yaml
+      hash: md5
+      md5: 1145cafee3a098683961c71fb9e9dd04
+      size: 219
+    - path: config/prompt/qa/short_zero_shot.yaml
+      hash: md5
+      md5: 40a144371b6929d2ec37d4b603ceaf01
+      size: 141
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: eae383d48944bb2661b591ddb507b9d8
+      size: 4549
+    outs:
+    - path: 
+        /data/hallucinations/activations/trivia_qa/llama_3.1_8b_instruct/sampling_multiple_samples__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: c0b37d3dab45757c0577fe1e5d58ae19.dir
+      size: 1147404393151
+      nfiles: 1922
+    - path: 
+        /data/hallucinations/activations/trivia_qa/llama_3.1_8b_instruct/sampling_multiple_samples__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: bb7b6274c6dc39347180bac9ebf84480
+      size: 2268440
+    - path: 
+        /data/hallucinations/activations/trivia_qa/llama_3.1_8b_instruct/sampling_multiple_samples__prompt_qa/short_zero_shot__seed_42/config.yaml
+      hash: md5
+      md5: 6c39d917f4a370af49e5fb9cef5d6881
+      size: 1143
+  generate_activations_untrained_model@config11-42-sampling_low_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=trivia_qa
+      llm=mistral_0.3_7b_instruct llm.untrained=true generation_config=sampling_low_temp_with_activations
+      prompt=qa/short_zero_shot batch_size=32 
+      results_dir=/data/hallucinations/activations_untrained/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/trivia_qa.yaml
+      hash: md5
+      md5: 5d0eaf46832fa2b7f5327bc27cbfbb1b
+      size: 336
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_low_temp_with_activations.yaml
+      hash: md5
+      md5: 4d0821ece2f22d6fc13224add2cd4908
+      size: 588
+    - path: config/llm/mistral_0.3_7b_instruct.yaml
+      hash: md5
+      md5: 85ac7eff8408840edbda7c0af192c5b3
+      size: 215
+    - path: config/prompt/qa/short_zero_shot.yaml
+      hash: md5
+      md5: 40a144371b6929d2ec37d4b603ceaf01
+      size: 141
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: eae383d48944bb2661b591ddb507b9d8
+      size: 4549
+    outs:
+    - path: 
+        /data/hallucinations/activations_untrained/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 8911191e1110dd33e28db3cc4a37467f.dir
+      size: 253561283674
+      nfiles: 121
+    - path: 
+        /data/hallucinations/activations_untrained/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: fbec4ad2d3e7cd749e273f9738adfe68
+      size: 1446870
+    - path: 
+        /data/hallucinations/activations_untrained/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/config.yaml
+      hash: md5
+      md5: c03c469c93f493d273442a0e11adc5e5
+      size: 1168
+  generate_activations_untrained_model@config11-42-sampling_high_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=trivia_qa
+      llm=mistral_0.3_7b_instruct llm.untrained=true generation_config=sampling_high_temp_with_activations
+      prompt=qa/short_zero_shot batch_size=32 
+      results_dir=/data/hallucinations/activations_untrained/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/trivia_qa.yaml
+      hash: md5
+      md5: 5d0eaf46832fa2b7f5327bc27cbfbb1b
+      size: 336
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_high_temp_with_activations.yaml
+      hash: md5
+      md5: 48b1600135afbe0c4ca3c416942c8c7c
+      size: 217
+    - path: config/llm/mistral_0.3_7b_instruct.yaml
+      hash: md5
+      md5: 85ac7eff8408840edbda7c0af192c5b3
+      size: 215
+    - path: config/prompt/qa/short_zero_shot.yaml
+      hash: md5
+      md5: 40a144371b6929d2ec37d4b603ceaf01
+      size: 141
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: eae383d48944bb2661b591ddb507b9d8
+      size: 4549
+    outs:
+    - path: 
+        /data/hallucinations/activations_untrained/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 0c8d41ef3c505ec71214a4d45c23ba80.dir
+      size: 253561283674
+      nfiles: 121
+    - path: 
+        /data/hallucinations/activations_untrained/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: e2975b0577deda06ab13f67f5789a3d0
+      size: 1445844
+    - path: 
+        /data/hallucinations/activations_untrained/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/config.yaml
+      hash: md5
+      md5: 14e78d6dc7699359964b96f67759f1dd
+      size: 1129
+  generate_activations_untrained_model@config12-42-sampling_low_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=nq_open
+      llm=llama_3.1_8b_instruct llm.untrained=true generation_config=sampling_low_temp_with_activations
+      prompt=qa/short_zero_shot batch_size=64 
+      results_dir=/data/hallucinations/activations_untrained/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/nq_open.yaml
+      hash: md5
+      md5: 1bb7743590d127466fb80254e25605cf
+      size: 304
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_low_temp_with_activations.yaml
+      hash: md5
+      md5: 4d0821ece2f22d6fc13224add2cd4908
+      size: 588
+    - path: config/llm/llama_3.1_8b_instruct.yaml
+      hash: md5
+      md5: 1145cafee3a098683961c71fb9e9dd04
+      size: 219
+    - path: config/prompt/qa/short_zero_shot.yaml
+      hash: md5
+      md5: 40a144371b6929d2ec37d4b603ceaf01
+      size: 141
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: eae383d48944bb2661b591ddb507b9d8
+      size: 4549
+    outs:
+    - path: 
+        /data/hallucinations/activations_untrained/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 4b66ddb7169dd5353b0cef5b4f736c8c.dir
+      size: 227850950962
+      nfiles: 57
+    - path: 
+        /data/hallucinations/activations_untrained/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: 8958d7d973b8ea555508c30df5892b54
+      size: 1849255
+    - path: 
+        /data/hallucinations/activations_untrained/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/config.yaml
+      hash: md5
+      md5: 378ec871b43845479037c1a03d3fdb9f
+      size: 1162
+  compute_semantic_entropy@config4-42-sampling_multiple_samples:
+    cmd: PYTHONPATH=. python scripts/eval/compute_semantic_entropy.py 
+      --results-dir=/data/hallucinations/activations/trivia_qa/llama_3.1_8b_instruct/sampling_multiple_samples__prompt_qa/short_zero_shot__seed_42
+    deps:
+    - path: 
+        /data/hallucinations/activations/trivia_qa/llama_3.1_8b_instruct/sampling_multiple_samples__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: c0b37d3dab45757c0577fe1e5d58ae19.dir
+      size: 1147404393151
+      nfiles: 1922
+    - path: 
+        /data/hallucinations/activations/trivia_qa/llama_3.1_8b_instruct/sampling_multiple_samples__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: bb7b6274c6dc39347180bac9ebf84480
+      size: 2268440
+    - path: scripts/eval/compute_semantic_entropy.py
+      hash: md5
+      md5: 33e245453771ea8e0d2c1bef69d2b820
+      size: 5095
+    outs:
+    - path: 
+        /data/hallucinations/activations/trivia_qa/llama_3.1_8b_instruct/sampling_multiple_samples__prompt_qa/short_zero_shot__seed_42/entropy_metrics.json
+      hash: md5
+      md5: e5cf836d633ce8c1c6baadad017c577b
+      size: 3134289
+  generate_activations_untrained_model@config12-42-sampling_high_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/dataset/generate_activations.py dataset=nq_open
+      llm=llama_3.1_8b_instruct llm.untrained=true generation_config=sampling_high_temp_with_activations
+      prompt=qa/short_zero_shot batch_size=64 
+      results_dir=/data/hallucinations/activations_untrained/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      random_seed=42
+    deps:
+    - path: config/dataset/nq_open.yaml
+      hash: md5
+      md5: 1bb7743590d127466fb80254e25605cf
+      size: 304
+    - path: config/generate_activations.yaml
+      hash: md5
+      md5: 4bd4a2b2975aff3ca610f8a359bb49ab
+      size: 202
+    - path: config/generation_config/sampling_high_temp_with_activations.yaml
+      hash: md5
+      md5: 48b1600135afbe0c4ca3c416942c8c7c
+      size: 217
+    - path: config/llm/llama_3.1_8b_instruct.yaml
+      hash: md5
+      md5: 1145cafee3a098683961c71fb9e9dd04
+      size: 219
+    - path: config/prompt/qa/short_zero_shot.yaml
+      hash: md5
+      md5: 40a144371b6929d2ec37d4b603ceaf01
+      size: 141
+    - path: scripts/dataset/generate_activations.py
+      hash: md5
+      md5: eae383d48944bb2661b591ddb507b9d8
+      size: 4549
+    outs:
+    - path: 
+        /data/hallucinations/activations_untrained/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 444f303047fd95ec86ea0886b169b7ec.dir
+      size: 227850950962
+      nfiles: 57
+    - path: 
+        /data/hallucinations/activations_untrained/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: f3854008795ad5e491bd34ea9dd3657c
+      size: 1842255
+    - path: 
+        /data/hallucinations/activations_untrained/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/config.yaml
+      hash: md5
+      md5: 47dd7cd36bdf225228ee1320a7df4da8
+      size: 1123
+  compute_diff_metrics@config12-42-sampling_high_temp_with_activations-erank:
+    cmd: PYTHONPATH=. python scripts/eval/compute_diff_metric.py 
+      --results-dir=data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --results-dir-untrained=/data/hallucinations/activations_untrained/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --metric=erank 
+      --diff-metric-output-path=data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/diff_erank.pt
+      --metric-output-path=data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/erank.pt
+      --use_token_mask
+    deps:
+    - path: 
+        /data/hallucinations/activations_untrained/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 444f303047fd95ec86ea0886b169b7ec.dir
+      size: 227850950962
+      nfiles: 57
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 3be4d794898876a91bd2d59fb1429dd5.dir
+      size: 113928657202
+      nfiles: 57
+    - path: scripts/eval/compute_diff_metric.py
+      hash: md5
+      md5: 7681f67a113e9ec833413b4aa542304b
+      size: 2420
+    outs:
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/diff_erank.pt
+      hash: md5
+      md5: f2321f90a15c74412b7b3cdd5822bbba
+      size: 477675
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/erank.pt
+      hash: md5
+      md5: 79f9c14f2aac92ead90c388e0ef530eb
+      size: 477650
+  compute_diff_metrics@config12-42-sampling_low_temp_with_activations-erank:
+    cmd: PYTHONPATH=. python scripts/eval/compute_diff_metric.py 
+      --results-dir=data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --results-dir-untrained=/data/hallucinations/activations_untrained/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --metric=erank 
+      --diff-metric-output-path=data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/diff_erank.pt
+      --metric-output-path=data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/erank.pt
+      --use_token_mask
+    deps:
+    - path: 
+        /data/hallucinations/activations_untrained/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 4b66ddb7169dd5353b0cef5b4f736c8c.dir
+      size: 227850950962
+      nfiles: 57
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 591d74e9752b51a743f2b52e91909620.dir
+      size: 113928657202
+      nfiles: 57
+    - path: scripts/eval/compute_diff_metric.py
+      hash: md5
+      md5: 7681f67a113e9ec833413b4aa542304b
+      size: 2420
+    outs:
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/diff_erank.pt
+      hash: md5
+      md5: 7e3e90d9da81fdd7371d70c15bb75ec9
+      size: 477675
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/erank.pt
+      hash: md5
+      md5: a4327df69c99cbd16faad6d8c6bbe5fb
+      size: 477650
+  compute_diff_metrics@config11-42-sampling_high_temp_with_activations-erank:
+    cmd: PYTHONPATH=. python scripts/eval/compute_diff_metric.py 
+      --results-dir=data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --results-dir-untrained=/data/hallucinations/activations_untrained/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --metric=erank 
+      --diff-metric-output-path=data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/diff_erank.pt
+      --metric-output-path=data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/erank.pt
+      --use_token_mask
+    deps:
+    - path: 
+        /data/hallucinations/activations_untrained/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 0c8d41ef3c505ec71214a4d45c23ba80.dir
+      size: 253561283674
+      nfiles: 121
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: f6a70de722459c70e5bb042ac595a044.dir
+      size: 126758019258
+      nfiles: 121
+    - path: scripts/eval/compute_diff_metric.py
+      hash: md5
+      md5: 7681f67a113e9ec833413b4aa542304b
+      size: 2420
+    outs:
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/diff_erank.pt
+      hash: md5
+      md5: abd4f2be13091b5e1e277013ed6acfbc
+      size: 508331
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/erank.pt
+      hash: md5
+      md5: 043d0801760dcbe1eb2615e889b18622
+      size: 508306
+  compute_diff_metrics@config11-42-sampling_low_temp_with_activations-erank:
+    cmd: PYTHONPATH=. python scripts/eval/compute_diff_metric.py 
+      --results-dir=data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --results-dir-untrained=/data/hallucinations/activations_untrained/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --metric=erank 
+      --diff-metric-output-path=data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/diff_erank.pt
+      --metric-output-path=data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/erank.pt
+      --use_token_mask
+    deps:
+    - path: 
+        /data/hallucinations/activations_untrained/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 8911191e1110dd33e28db3cc4a37467f.dir
+      size: 253561283674
+      nfiles: 121
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 354f92d345c9d30d88d35c7e5eacc5aa.dir
+      size: 126691514362
+      nfiles: 121
+    - path: scripts/eval/compute_diff_metric.py
+      hash: md5
+      md5: 7681f67a113e9ec833413b4aa542304b
+      size: 2420
+    outs:
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/diff_erank.pt
+      hash: md5
+      md5: bf10ef8704d29657e334f1b5e6b1c7b8
+      size: 508331
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/erank.pt
+      hash: md5
+      md5: dfd888e74c6abaf6d59a78365a085f08
+      size: 508306
+  compute_metrics@config12-42-sampling_high_temp_with_activations-logdet:
+    cmd: PYTHONPATH=. python scripts/eval/compute_metric.py 
+      --results-dir=data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --output-path=data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/logdet.pt
+      --metric=logdet --use_token_mask
+    deps:
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 3be4d794898876a91bd2d59fb1429dd5.dir
+      size: 113928657202
+      nfiles: 57
+    - path: scripts/eval/compute_metric.py
+      hash: md5
+      md5: d37c71d471f499ec3408c03456085b9e
+      size: 1561
+    outs:
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/logdet.pt
+      hash: md5
+      md5: 5fc3d4818d4bde80de034ddd26816ee8
+      size: 477655
+  compute_metrics@config11-42-sampling_high_temp_with_activations-logdet:
+    cmd: PYTHONPATH=. python scripts/eval/compute_metric.py 
+      --results-dir=data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --output-path=data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/logdet.pt
+      --metric=logdet --use_token_mask
+    deps:
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: f6a70de722459c70e5bb042ac595a044.dir
+      size: 126758019258
+      nfiles: 121
+    - path: scripts/eval/compute_metric.py
+      hash: md5
+      md5: d37c71d471f499ec3408c03456085b9e
+      size: 1561
+    outs:
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/logdet.pt
+      hash: md5
+      md5: 48932cd9c0dbd5d92746ad61ccb5450f
+      size: 508311
+  compute_metrics@config12-42-sampling_low_temp_with_activations-logdet:
+    cmd: PYTHONPATH=. python scripts/eval/compute_metric.py 
+      --results-dir=data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --output-path=data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/logdet.pt
+      --metric=logdet --use_token_mask
+    deps:
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 591d74e9752b51a743f2b52e91909620.dir
+      size: 113928657202
+      nfiles: 57
+    - path: scripts/eval/compute_metric.py
+      hash: md5
+      md5: d37c71d471f499ec3408c03456085b9e
+      size: 1561
+    outs:
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/logdet.pt
+      hash: md5
+      md5: 66ef9df08af0f53e1f4a507243abdb7a
+      size: 477655
+  compute_metrics@config11-42-sampling_low_temp_with_activations-logdet:
+    cmd: PYTHONPATH=. python scripts/eval/compute_metric.py 
+      --results-dir=data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42
+      --output-path=data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/logdet.pt
+      --metric=logdet --use_token_mask
+    deps:
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/activations
+      hash: md5
+      md5: 354f92d345c9d30d88d35c7e5eacc5aa.dir
+      size: 126691514362
+      nfiles: 121
+    - path: scripts/eval/compute_metric.py
+      hash: md5
+      md5: d37c71d471f499ec3408c03456085b9e
+      size: 1561
+    outs:
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/logdet.pt
+      hash: md5
+      md5: 25e8fd407dbad52039f9955309b73081
+      size: 508311
+  eval_answers@config11-42-sampling_low_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/eval/compute_qa_metrics.py 
+      --answers-file=data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+    deps:
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: d31b0698769f747139c7a97e4b7c02bb
+      size: 545969
+    - path: scripts/eval/compute_qa_metrics.py
+      hash: md5
+      md5: d3f61a57e208c230015383296832ec72
+      size: 1114
+    outs:
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/qa_metrics.json
+      hash: md5
+      md5: e8f35e1f20aaf2ef4f7a362d608f5bf2
+      size: 618543
+  eval_answers@config11-42-sampling_high_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/eval/compute_qa_metrics.py 
+      --answers-file=data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+    deps:
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: 1ea955eab90ae13146326dff47f562e8
+      size: 580104
+    - path: scripts/eval/compute_qa_metrics.py
+      hash: md5
+      md5: d3f61a57e208c230015383296832ec72
+      size: 1114
+    outs:
+    - path: 
+        data/activations/trivia_qa/mistral_0.3_7b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/qa_metrics.json
+      hash: md5
+      md5: 73ce5626fdc275507a9cfda191e675e9
+      size: 619999
+  eval_answers@config12-42-sampling_low_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/eval/compute_qa_metrics.py 
+      --answers-file=data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+    deps:
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: 94c805883618ca961930d610874bd046
+      size: 598473
+    - path: scripts/eval/compute_qa_metrics.py
+      hash: md5
+      md5: d3f61a57e208c230015383296832ec72
+      size: 1114
+    outs:
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_low_temp_with_activations__prompt_qa/short_zero_shot__seed_42/qa_metrics.json
+      hash: md5
+      md5: 4be71bc495725f68afbaeb38169a904d
+      size: 573797
+  eval_answers@config12-42-sampling_high_temp_with_activations:
+    cmd: PYTHONPATH=. python scripts/eval/compute_qa_metrics.py 
+      --answers-file=data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+    deps:
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/answers.json
+      hash: md5
+      md5: b94b0b87b3dd4415e948cbc0d1671a11
+      size: 620078
+    - path: scripts/eval/compute_qa_metrics.py
+      hash: md5
+      md5: d3f61a57e208c230015383296832ec72
+      size: 1114
+    outs:
+    - path: 
+        data/activations/nq_open/llama_3.1_8b_instruct/sampling_high_temp_with_activations__prompt_qa/short_zero_shot__seed_42/qa_metrics.json
+      hash: md5
+      md5: eb478d1b34a1233e8efc0ad6fdc68f38
+      size: 571333

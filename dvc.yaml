@@ -52,6 +52,15 @@ stages:
           dataset: trivia_qa
           prompt: qa/short_zero_shot
           batch_size: 32
+        - llm: mistral_0.3_7b_instruct
+          dataset: trivia_qa
+          prompt: qa/short_zero_shot
+          batch_size: 32
+      ## NQ_OPEN
+        - llm: llama_3.1_8b_instruct
+          dataset: nq_open
+          prompt: qa/short_zero_shot
+          batch_size: 64
       seed:
         - 42
       generation_config:
@@ -117,32 +126,23 @@ stages:
     outs:
       - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/qa_metrics.json
 
-  eval_answers_llm_as_judge:
+  eval_answers_llm_judge:
     matrix:
-      config:
-        - llm: llama_3.1_8b_instruct
-          dataset: nq_open
-          prompt: qa/short_few_shot_sep
-          batch_size: 64
+      <<: *activation_matrix
       judge_prompt:
-        - llm_as_judge/qa_eval
-      seed:
-        - 42
-      generation_config:
-        - sampling_low_temp_with_activations
-        - sampling_high_temp_with_activations
+        - qa_orgad_et_al_eval
+      judge_llm:
+        - gpt-4o-mini
     cmd: >-
       PYTHONPATH=. python scripts/eval/llm_as_judge.py
       answers_file=data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/answers.json
-      prompt=${item.judge_prompt}
+      prompt=llm_as_judge/${item.judge_prompt}
+      llm_name=${item.judge_llm}
     deps:
       - scripts/eval/llm_as_judge.py
       - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/answers.json
       - config/llm_as_judge.yaml
-      - config/prompt/${item.judge_prompt}.yaml
-    outs:
-      - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/llm_judge.json
-      - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/llm_judge_config.yaml
+      - config/prompt/llm_as_judge/${item.judge_prompt}.yaml
 
   generate_trajectories:
     matrix:
@@ -224,6 +224,10 @@ stages:
         - llm: llama_3.1_8b_instruct
           dataset: squad
           prompt: qa/short_few_shot_sep
+          batch_size: 4
+        - llm: llama_3.1_8b_instruct
+          dataset: trivia_qa
+          prompt: qa/short_zero_shot
           batch_size: 4
       seed:
         - 42
@@ -371,3 +375,8 @@ stages:
       - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/activations
     outs:
       - data/activations/${item.config.dataset}/${item.config.llm}/${item.generation_config}__prompt_${item.config.prompt}__seed_${item.seed}/${item.metric}.pt
+
+  compute_results:
+    cmd: >-
+      PYTHONPATH=. python scripts/eval/gather_qa_metrics.py --output-dir=data/results;
+      PYTHONPATH=. python scripts/eval/compute_auroc.py --output-dir=data/results
