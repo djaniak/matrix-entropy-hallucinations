@@ -8,9 +8,9 @@ ACTIVATIONS_DIR = DATA_DIR / "activations"
 
 
 MODEL_NAMES_MAPPING = {
-    "llama_3.1_8b_instruct": "Llama-3.1-8B-Instruct",
-    "mistral_0.3_7b_instruct": "Mistral-0.3-7B-Instruct",
-    "phi_3.5_mini_instruct": "Phi-3.5-Mini-Instruct",
+    "llama_3.1_8b_instruct": "Llama-3.1-8B",
+    "mistral_0.3_7b_instruct": "Mistral-0.3-7B",
+    "phi_3.5_mini_instruct": "Phi-3.5-Mini",
 }
 
 PROMPT_NAMES_MAPPING = {

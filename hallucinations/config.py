@@ -58,6 +58,8 @@ class PromptConfig(BaseModel, extra="forbid"):
 class QaPromptConfig(PromptConfig, extra="forbid"):
     question_key: str
     context_key: str | None = None
+    shot_type: Literal["zero_shot", "few_shot"]
+    question_template: str
 
 
 class CcPromptConfig(PromptConfig, extra="forbid"):

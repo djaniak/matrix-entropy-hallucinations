@@ -9,3 +9,5 @@ min_new_tokens: 1           # Ensure that the model outputs at least one token
 return_dict_in_generate: true
 output_attentions: false
 output_hidden_states: true
+output_scores: true
+renormalize_logits: true

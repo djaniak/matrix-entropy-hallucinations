@@ -11,6 +11,7 @@ from tqdm.auto import tqdm
 from transformers import PreTrainedModel, PreTrainedTokenizer
 from transformers.generation import GenerateDecoderOnlyOutput, GenerationConfig
 
+from hallucinations.config import QaPromptConfig
 from hallucinations.llm.activation_storage import ActivationStorage
 
 
@@ -20,6 +21,7 @@ def predict_with_llm(
     tokenizer: PreTrainedTokenizer,
     dataset: Dataset,
     generation_config: GenerationConfig,
+    prompt_config: QaPromptConfig,
     activation_storage: ActivationStorage | None,
     batch_size: int,
     num_proc: int,
@@ -54,14 +56,18 @@ def predict_with_llm(
                 generation_config=generation_config,
             )
             duration = time.time() - start_time
-
             if isinstance(outputs, GenerateDecoderOnlyOutput):
                 assert (
                     activation_storage is not None
                 ), "activation_storage must be provided for GenerateDecoderOnlyOutput"
                 outputs.sequences = outputs.sequences.cpu()
                 generated_ids = outputs.sequences
-                token_masks = get_token_masks(outputs.sequences, tokenizer)
+                token_masks = get_token_masks(
+                    token_ids=generated_ids,
+                    question_template=prompt_config.question_template,
+                    tokenizer=tokenizer,
+                )
+
                 activation_storage.update(
                     outputs=outputs,
                     attention_mask=attention_mask,
@@ -172,6 +178,7 @@ def predict_multiple_samples(
                         attention_mask=attention_mask,
                         special_token_mask=token_masks["special_token_mask"],
                         decoder_added_token_mask=token_masks["decoder_added_token_mask"],
+                        question_answer_mask=token_masks["question_answer_mask"],
                         input_length=input_length,
                         batch_idx=i,
                         num_samples=num_samples,
@@ -206,7 +213,9 @@ def predict_multiple_samples(
     return model_outputs
 
 
-def get_token_masks(token_ids: Tensor, tokenizer: PreTrainedTokenizer) -> dict[str, Tensor]:
+def get_token_masks(
+    token_ids: Tensor, question_template: str, tokenizer: PreTrainedTokenizer
+) -> dict[str, Tensor]:
     special_token_masks = torch.tensor(
         [
             tokenizer.get_special_tokens_mask(
@@ -224,7 +233,21 @@ def get_token_masks(token_ids: Tensor, tokenizer: PreTrainedTokenizer) -> dict[s
         ]
     )
 
+    # Create mask for question and answer tokens (excluding few-shot examples)
+    question_answer_mask = torch.zeros_like(token_ids, dtype=torch.bool)
+    # Find index of last question_template (e.g. "Question:") in the prompt
+    for i_seq, seq in enumerate(token_ids):
+        question_tok = tokenizer(question_template, add_special_tokens=False)["input_ids"]
+        question_start_idx = -1
+        for i in range(len(seq) - len(question_tok)):
+            if seq[i : i + len(question_tok)].tolist() == question_tok:
+                question_start_idx = i
+        if question_start_idx >= 0:
+            # Mask from last question to end
+            question_answer_mask[i_seq, question_start_idx:] = True
+
     return {
         "special_token_mask": special_token_masks,
         "decoder_added_token_mask": decoder_added_token_mask,
+        "question_answer_mask": question_answer_mask,
     }

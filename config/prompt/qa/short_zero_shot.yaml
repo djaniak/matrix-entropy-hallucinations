@@ -4,3 +4,5 @@ content: |
   Answer:
 question_key: question
 context_key: null
+shot_type: zero_shot
+question_template: "Question:"

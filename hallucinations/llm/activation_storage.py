@@ -53,6 +53,7 @@ class AllActivationsStorage(ActivationStorage):
         attention_mask: Tensor,
         special_token_mask: Tensor,
         decoder_added_token_mask: Tensor,
+        question_answer_mask: Tensor,
         input_length: int,
         **kwargs: Any,
     ) -> None:
@@ -61,6 +62,7 @@ class AllActivationsStorage(ActivationStorage):
             "attention_mask": attention_mask.cpu(),
             "special_token_mask": special_token_mask.cpu(),
             "decoder_token_mask": decoder_added_token_mask.cpu(),
+            "question_answer_mask": question_answer_mask.cpu(),
             "input_length": input_length,
         }
         if "hidden_states" in outputs:
@@ -71,6 +73,12 @@ class AllActivationsStorage(ActivationStorage):
             intermediate_states["attentions"] = get_sequences_by_layer(
                 outputs.attentions, concat=False
             )
+        if "scores" in outputs:
+            # scores are a list of tensors, each of shape (sequence_length, batch_size, vocab_size)
+            # we want to stack them along the first dimension and then transpose the first two dimensions
+            # so the final shape is (batch_size, sequence_length, vocab_size)
+            scores = torch.stack(outputs.scores).transpose(0, 1)
+            intermediate_states["scores"] = scores
 
         save_file = self.activations_save_dir / f"batch_{batch_idx}.pt"
         torch.save(intermediate_states, save_file)
@@ -94,6 +102,7 @@ class MultipleSamplesActivationStorage(ActivationStorage):
         attention_mask: Tensor,
         special_token_mask: Tensor,
         decoder_added_token_mask: Tensor,
+        question_answer_mask: Tensor,
         input_length: int,
         model: PreTrainedModel,
         batch_size: int,
@@ -106,6 +115,7 @@ class MultipleSamplesActivationStorage(ActivationStorage):
             "attention_mask": attention_mask.cpu(),
             "special_token_mask": special_token_mask.cpu(),
             "decoder_token_mask": decoder_added_token_mask.cpu(),
+            "question_answer_mask": question_answer_mask.cpu(),
             "input_length": input_length,
             "num_samples": num_samples,
         }
