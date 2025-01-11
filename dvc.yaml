@@ -7,60 +7,81 @@ stages:
         - llm: llama_3.1_8b_instruct
           dataset: nq_open
           prompt: qa/short_few_shot_sep
-          batch_size: 64
+          batch_size: 1
         - llm: mistral_0.3_7b_instruct
           dataset: nq_open
           prompt: qa/short_few_shot_sep
-          batch_size: 64
+          batch_size: 1
         - llm: phi_3.5_mini_instruct
           dataset: nq_open
           prompt: qa/short_few_shot_sep
-          batch_size: 64
+          batch_size: 1
         ## TRIVIA_QA
         - llm: llama_3.1_8b_instruct
           dataset: trivia_qa
           prompt: qa/short_few_shot_sep
-          batch_size: 32
+          batch_size: 1
         - llm: mistral_0.3_7b_instruct
           dataset: trivia_qa
           prompt: qa/short_few_shot_sep
-          batch_size: 32
+          batch_size: 1
         - llm: phi_3.5_mini_instruct
           dataset: trivia_qa
           prompt: qa/short_few_shot_sep
-          batch_size: 32
-        - llm: llama_3.1_8b_instruct
-          dataset: trivia_qa
-          prompt: qa/short_few_shot_trivia
-          batch_size: 32
+          batch_size: 1
       ## SQUAD
         - llm: llama_3.1_8b_instruct
           dataset: squad
           prompt: qa/short_few_shot_sep
-          batch_size: 32
+          batch_size: 1
         - llm: mistral_0.3_7b_instruct
           dataset: squad
           prompt: qa/short_few_shot_sep
-          batch_size: 32
+          batch_size: 1
         - llm: phi_3.5_mini_instruct
           dataset: squad
           prompt: qa/short_few_shot_sep
-          batch_size: 32
+          batch_size: 1
       # ZERO-SHOT
-      ## TRIVIA_QA
-        - llm: llama_3.1_8b_instruct
-          dataset: trivia_qa
-          prompt: qa/short_zero_shot
-          batch_size: 32
-        - llm: mistral_0.3_7b_instruct
-          dataset: trivia_qa
-          prompt: qa/short_zero_shot
-          batch_size: 32
       ## NQ_OPEN
         - llm: llama_3.1_8b_instruct
           dataset: nq_open
           prompt: qa/short_zero_shot
-          batch_size: 64
+          batch_size: 1
+        - llm: mistral_0.3_7b_instruct
+          dataset: nq_open
+          prompt: qa/short_zero_shot
+          batch_size: 1
+        - llm: phi_3.5_mini_instruct
+          dataset: nq_open
+          prompt: qa/short_zero_shot
+          batch_size: 1
+      ## TRIVIA_QA
+        - llm: llama_3.1_8b_instruct
+          dataset: trivia_qa
+          prompt: qa/short_zero_shot
+          batch_size: 1
+        - llm: mistral_0.3_7b_instruct
+          dataset: trivia_qa
+          prompt: qa/short_zero_shot
+          batch_size: 1
+        - llm: phi_3.5_mini_instruct
+          dataset: trivia_qa
+          prompt: qa/short_zero_shot
+          batch_size: 1
+      ## SQUAD
+        - llm: llama_3.1_8b_instruct
+          dataset: squad
+          prompt: qa/short_zero_shot
+          batch_size: 4
+        - llm: mistral_0.3_7b_instruct
+          dataset: squad
+          prompt: qa/short_zero_shot
+          batch_size: 4
+        - llm: phi_3.5_mini_instruct
+          dataset: squad
+          prompt: qa/short_zero_shot
+          batch_size: 4
       seed:
         - 42
       generation_config:
